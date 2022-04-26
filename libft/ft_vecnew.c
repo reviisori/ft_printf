@@ -14,7 +14,7 @@
 
 int	ft_vecnew(t_vec *dest, size_t init_len, size_t type)
 {
-	if (!dest || type == 0)
+	if (!dest || init_len == 0 || type == 0)
 		return (-1);
 	dest->alloc_size = type * init_len;
 	dest->type = type;
@@ -25,7 +25,11 @@ int	ft_vecnew(t_vec *dest, size_t init_len, size_t type)
 	{
 		dest->data = malloc(dest->alloc_size);
 		if (!dest->data)
+		{
+			dest->alloc_size = 0;
+			dest->type = 0;
 			return (-1);
+		}
 	}
 	return (0);
 }

@@ -19,7 +19,8 @@ int	ft_veccpy(t_vec *dest, t_vec *src)
 	if (!dest || !src || !src->data)
 		return (-1);
 	if (!dest->data)
-		ft_vecnew(dest, src->len, dest->type);
+		if (ft_vecnew(dest, src->len, dest->type) < 0)
+			return (-1);
 	if (src->type * src->len < dest->alloc_size)
 		bytes_to_copy = src->type * src->len;
 	else

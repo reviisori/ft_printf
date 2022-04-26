@@ -17,7 +17,8 @@ int	ft_vecpush(t_vec *dest, const void *src)
 	if (!dest || !src)
 		return (-1);
 	if (!dest->data)
-		ft_vecnew(dest, 1, dest->type);
+		if (ft_vecnew(dest, 1, dest->type) < 0)
+			return (-1);
 	if (dest->type * dest->len >= dest->alloc_size)
 		if (ft_vecresize(dest, dest->alloc_size * 2) < 0)
 			return (-1);
