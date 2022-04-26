@@ -18,11 +18,11 @@
 
 typedef struct s_vec
 {
-	unsigned char	*data;		/* ptr to the first byte of allocated mem */
-	size_t			alloc_size;	/* total size of allocated bytes */
-	size_t			type;		/* size of the vec elemement (type) in bytes */
-	size_t			len;		/* len of used-up mem in type chunck(s) */
-}					t_vec;
+	void	*data;		/* ptr to the first byte of allocated mem */
+	size_t	alloc_size;	/* total size of allocated bytes */
+	size_t	type;		/* size of the vec elemement (type) in bytes */
+	size_t	len;		/* len of used-up mem in type chunck(s) */
+}		t_vec;
 
 int		ft_vecnew(t_vec *dest, size_t init_len, size_t type);
 void	ft_vecdel(t_vec *src);
