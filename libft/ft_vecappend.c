@@ -17,7 +17,7 @@ int	ft_vecappend(t_vec *dest, t_vec *src)
 		if (dest->alloc_size * 2 < new_size)
 			ret = ft_vecresize(dest, new_size);
 		else
-			ret = ft_vecresize(dest, dest->malloc_size * 2);
+			ret = ft_vecresize(dest, dest->alloc_size * 2);
 		if (ret < 0)
 			return (-1);
 	}
