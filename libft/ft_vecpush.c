@@ -12,7 +12,7 @@
 
 #include "vec.h"
 
-int	ft_vecpush(t_vec *dest, void *src)
+int	ft_vecpush(t_vec *dest, const void *src)
 {
 	if (!dest || !src)
 		return (-1);
