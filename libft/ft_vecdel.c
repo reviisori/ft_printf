@@ -12,7 +12,7 @@
 
 #include "vec.h"
 
-void	ft_vecfree(t_vec *src)
+void	ft_vecdel(t_vec *src)
 {
 	if (src && src->alloc_size != 0)
 	{
