@@ -37,7 +37,8 @@ int	print_shop(char **str, const char *format, va_list ap)
 	t_stat	attr;
 	int		ret;
 
-	print = NULL;	//init vector with FT_VECNEW;
+	if (ft_vecnew(&print, 1, sizeof(char)) < 0)
+		return (-1);
 	attr = NULL;	//init attributes
 	ret = press(&print, format, attr);
 	if (ret < 0)
