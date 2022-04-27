@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 17:26:52 by altikka           #+#    #+#             */
-/*   Updated: 2022/04/25 18:03:55 by altikka          ###   ########.fr       */
+/*   Updated: 2022/04/27 14:17:52 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ int	ft_vecpush(t_vec *dest, const void *src)
 			return (-1);
 	ft_memcpy(&dest->data[dest->type * dest->len], src, dest->type);
 	dest->len++;
-	return (0);
+	return (1);
 }

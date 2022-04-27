@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 18:24:15 by altikka           #+#    #+#             */
-/*   Updated: 2022/04/25 18:24:25 by altikka          ###   ########.fr       */
+/*   Updated: 2022/04/27 14:16:23 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ int	ft_veccpy(t_vec *dest, t_vec *src)
 		bytes_to_copy = dest->alloc_size;
 	ft_memcpy(dest->data, src->data, bytes_to_copy);
 	dest->len = bytes_to_copy / dest->type;
-	return (0);
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 09:33:48 by altikka           #+#    #+#             */
-/*   Updated: 2022/04/25 15:11:38 by altikka          ###   ########.fr       */
+/*   Updated: 2022/04/27 14:15:25 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ int	ft_vecnew(t_vec *dest, size_t init_len, size_t type)
 			return (-1);
 		}
 	}
-	return (0);
+	return (1);
 }

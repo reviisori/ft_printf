@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 12:38:15 by altikka           #+#    #+#             */
-/*   Updated: 2022/04/25 18:22:57 by altikka          ###   ########.fr       */
+/*   Updated: 2022/04/27 14:17:28 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ int	ft_vecresize(t_vec *src, size_t new_size)
 		temp.len = new_len;
 	ft_vecdel(src);
 	*src = temp;
-	return (0);
+	return (1);
 }
