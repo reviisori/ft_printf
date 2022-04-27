@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 //SEPERATE IN OWN .C
 int	press(t_vec *dest, const char *format, t_stat attr)
@@ -18,9 +18,9 @@ int	press(t_vec *dest, const char *format, t_stat attr)
 	char	*p;
 
 	p = format;
-	while (p)
+	while (*p)
 	{
-		if (p == '%')
+		if (*p == '%')
 		{
 			//FT_WHAT_NOW;
 			return (-1);
@@ -28,6 +28,7 @@ int	press(t_vec *dest, const char *format, t_stat attr)
 		ft_vecpush(dest, p);
 		p++;
 	}
+	ft_vecpush(dest, '\0');
 	return (0);
 }
 
@@ -39,11 +40,11 @@ int	print_shop(char **str, const char *format, va_list ap)
 
 	if (ft_vecnew(&print, 1, sizeof(char)) < 0)
 		return (-1);
-	attr = NULL;	//init attributes
+	//init attributes
 	ret = press(&print, format, attr);
 	if (ret < 0)
 		return (ret);
 	*str = print.data;
 	va_end(attr.ap);
-	return (print.len - 1); //excluding '\0'
+	return (print.len - 1);
 }
