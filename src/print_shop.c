@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 18:36:48 by altikka           #+#    #+#             */
-/*   Updated: 2022/04/28 12:56:33 by altikka          ###   ########.fr       */
+/*   Updated: 2022/04/28 12:59:29 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	press(t_vec *dest, const char *format, t_stat attr)
 			//FT_WHAT_NOW;
 			format = p;
 		}
-		ft_vecncat(dest, format, (p - format));
 		p++;
 	}
+	ft_vecncat(dest, format, (p - format));
 	return (0);
 }
 
