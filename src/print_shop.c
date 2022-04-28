@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 18:36:48 by altikka           #+#    #+#             */
-/*   Updated: 2022/04/28 12:42:58 by altikka          ###   ########.fr       */
+/*   Updated: 2022/04/28 12:56:33 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 //SEPERATE IN OWN .C
 int	press(t_vec *dest, const char *format, t_stat attr)
 {
-	char	*p;
+	const char	*p;
 
 	p = format;
 	while (*p)
