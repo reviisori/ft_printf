@@ -1,0 +1,14 @@
+*.DS_Store
+*vip.c
+*.gch
+*.rtf
+*.swp
+*.sw*
+*.o
+*libft.a
+*libftprint.a
+test*
+.vscode/
+*.dSYM
+a.out
+core
