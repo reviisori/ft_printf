@@ -6,7 +6,7 @@
 *.sw*
 *.o
 *libft.a
-*libftprint.a
+*libftprintf.a
 test*
 .vscode/
 *.dSYM
