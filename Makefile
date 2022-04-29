@@ -6,7 +6,7 @@
 #    By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/28 13:24:47 by altikka           #+#    #+#              #
-#    Updated: 2022/04/29 14:18:26 by altikka          ###   ########.fr        #
+#    Updated: 2022/04/29 15:41:43 by altikka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,10 @@ NAME = libftprintf.a
 INCS = -I libft/ -I includes/
 
 SRC_DIR = src/
-SRCS = src/ft_printf.c \
-	   src/print_shop.c
+SRCS = $(SRC_DIR)ft_printf.c \
+	   $(SRC_DIR)print_shop.c \
+	   $(SRC_DIR)utilities.c \
+	   $(SRC_DIR)press.c
 
 OBJ_DIR = obj/
 OBJ_LIBFT = libft/*.o
@@ -42,7 +44,7 @@ $(NAME):
 	@echo "             |  |      |   )|  /|  |  | |  |                "
 	@echo "             |   -'____| -' '    --'   - -'|                "
 	@echo "_____________'_________|___________________'________________"
-	@echo "                       '$(GOLD)    by altikka               "
+	@echo "                       '$(GOLD)   by altikka                "
 	@echo "$(NCOLOR)"
 	@make -C ./libft
 	@mkdir $(OBJ_DIR)
