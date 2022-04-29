@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 14:08:42 by altikka           #+#    #+#             */
-/*   Updated: 2022/04/29 15:40:35 by altikka          ###   ########.fr       */
+/*   Updated: 2022/04/29 17:49:23 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,26 @@ typedef struct s_stat
 
 /*
 
-typedef int	(*t_STRUCT)(TYPE *, TYPE *, [...]);
+int		tc_char(t_vec *dest, t_stat attr);
+int		tc_num(t_vec *dest, t_stat attr);
+int		tc_ptr(t_vec *dest, t_stat attr);
+int		tc_str(t_vec *dest, t_stat attr);
+
+typedef int	(*t_STRUCT)(TYPE *, TYPE *);
 
 t_STRUCT (*)NAME[4] = {
-	add,
-	sub,
-	mult,
-	divide
+	tc_char,
+	tc_num,
+	tc_ptr,
+	tc_str
 };
 
 */
 
 int		ft_printf(const char *format, ...);
 int		print_shop(char **str, const char *format, va_list ap);
+int		press(t_vec *dest, const char *format, t_stat attr);
 void	init_stats(t_stat *attr, va_list ap);
 void	reset_stats(t_stat *attr);
-int		press(t_vec *dest, const char *format, t_stat attr);
 
 #endif
