@@ -23,12 +23,12 @@ typedef struct s_stat
 	va_list			ap;
 	long			value;
 	int				sign;
-	unsigned int	is_signed;	// : 1?
-	unsigned int	flags;		// : 5?
+	unsigned int	is_signed;	// : 1 [on/off]
+	unsigned int	flags;		// : 5 [#-+ 0]
 	unsigned int	width;
 	unsigned int	preci;
-	unsigned int	preci_on;	// : 1?
-	unsigned int	lenght;		// : 3?
+	unsigned int	preci_on;	// : 1 [on/off]
+	unsigned int	lenght;		// : 3 [hh,h,l,ll] [l,L]
 	char			type;
 	char			pad;
 }			t_stat;
@@ -36,17 +36,23 @@ typedef struct s_stat
 /*
 
 int		tc_char(t_vec *dest, t_stat attr);
+int		tc_dbl(t_vec *dest, t_stat attr);
 int		tc_num(t_vec *dest, t_stat attr);
 int		tc_ptr(t_vec *dest, t_stat attr);
 int		tc_str(t_vec *dest, t_stat attr);
 
 typedef int	(*t_STRUCT)(TYPE *, TYPE *);
 
-t_STRUCT (*)NAME[4] = {
-	tc_char,
-	tc_num,
-	tc_ptr,
-	tc_str
+static const t_STRUCT	g_NAME[9] = {
+	tc_char,	//c
+	tc_num,		//d
+	tc_dbl,		//f
+	tc_num,		//i
+	tc_num,		//o
+	tc_ptr,		//p
+	tc_str,		//s
+	tc_num,		//u
+	tc_num		//xX
 };
 
 */
