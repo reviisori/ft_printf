@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 14:08:42 by altikka           #+#    #+#             */
-/*   Updated: 2022/04/29 17:49:23 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/02 16:03:30 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include "vec.h"
+
+# define TYPE_FIELD "cdfiopsux"
 
 typedef struct s_stat
 {
@@ -33,15 +35,13 @@ typedef struct s_stat
 	char			pad;
 }			t_stat;
 
-/*
+int		tc_char(t_vec *dest, t_stat *attr);
+int		tc_dbl(t_vec *dest, t_stat *attr);
+int		tc_num(t_vec *dest, t_stat *attr);
+int		tc_ptr(t_vec *dest, t_stat *attr);
+int		tc_str(t_vec *dest, t_stat *attr);
 
-int		tc_char(t_vec *dest, t_stat attr);
-int		tc_dbl(t_vec *dest, t_stat attr);
-int		tc_num(t_vec *dest, t_stat attr);
-int		tc_ptr(t_vec *dest, t_stat attr);
-int		tc_str(t_vec *dest, t_stat attr);
-
-typedef int	(*t_jump)(TYPE *, TYPE *);
+typedef int			(*t_jump)(t_vec *, t_stat *);
 
 static const t_jump	g_jump[9] = {
 	tc_char,	//c
@@ -54,8 +54,6 @@ static const t_jump	g_jump[9] = {
 	tc_num,		//u
 	tc_num		//xX
 };
-
-*/
 
 int		ft_printf(const char *format, ...);
 int		print_shop(char **str, const char *format, va_list ap);
