@@ -18,13 +18,12 @@ int	print_shop(char **str, const char *format, va_list ap)
 	t_stat	attr;
 	int		ret;
 
-	va_end(ap);			//REMOVE
 	if (ft_vecnew(&print, 1, sizeof(char)) < 0)
 		return (-1);
 	init_stats(&attr, ap);
 	ret = press(&print, format, attr);
 	if (ret < 0)
-		return (ret);
+		return (-1);
 	*str = print.data;
 	va_end(attr.ap);
 	return (print.len);
