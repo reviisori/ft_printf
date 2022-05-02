@@ -24,7 +24,12 @@ int	press(t_vec *dest, const char *format, t_stat attr)
 			if (ft_vecncat(dest, format, (p - format)) < 0)
 				return (-1);
 			reset_stats(&attr);
-			//FT_WHAT_NOW;
+			//[--$--]
+			//  [flags]
+			//	  [width]
+			//		[.preci]
+			//		  [lenght]
+			press_type(dest, &p, &attr);
 			format = p;
 		}
 		p++;
