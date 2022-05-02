@@ -41,9 +41,9 @@ int		tc_num(t_vec *dest, t_stat attr);
 int		tc_ptr(t_vec *dest, t_stat attr);
 int		tc_str(t_vec *dest, t_stat attr);
 
-typedef int	(*t_STRUCT)(TYPE *, TYPE *);
+typedef int	(*t_jump)(TYPE *, TYPE *);
 
-static const t_STRUCT	g_NAME[9] = {
+static const t_jump	g_jump[9] = {
 	tc_char,	//c
 	tc_num,		//d
 	tc_dbl,		//f
@@ -62,5 +62,6 @@ int		print_shop(char **str, const char *format, va_list ap);
 int		press(t_vec *dest, const char *format, t_stat attr);
 void	init_stats(t_stat *attr, va_list ap);
 void	reset_stats(t_stat *attr);
+int		press_type(t_vec *dest, const char **fptr, t_stat *attr);
 
 #endif
