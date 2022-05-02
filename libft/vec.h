@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 09:19:35 by altikka           #+#    #+#             */
-/*   Updated: 2022/04/27 14:36:00 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/02 16:59:37 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 
 typedef struct s_vec
 {
-	void	*data;		/* ptr to the first byte of allocated mem */
-	size_t	alloc_size;	/* total size of allocated bytes */
-	size_t	type;		/* size of the vec elemement (type) in bytes */
-	size_t	len;		/* len of used-up mem in type chunck(s) */
-}			t_vec;
+	void	*data;
+	size_t	alloc_size;
+	size_t	type;
+	size_t	len;
+}		t_vec;
 
 int		ft_vecnew(t_vec *dest, size_t init_len, size_t type);
 void	ft_vecdel(t_vec *src);
