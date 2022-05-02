@@ -15,13 +15,15 @@
 char	*ft_strnchr(char const *s, int c, size_t n)
 {
 	char	*ptr;
+	size_t	len;
 	size_t	i;
 
 	if (n == 0)
 		return ((char *) s);
 	ptr = ((char *) NULL);
+	len = ft_strlen(s);
 	i = 0;
-	while (i < n && i < ft_strlen(s) + 1)
+	while (i < n && i < len + 1)
 	{
 		if (s[i] == c)
 		{
