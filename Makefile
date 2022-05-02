@@ -18,7 +18,8 @@ SRC_DIR = src/
 SRCS = $(SRC_DIR)ft_printf.c \
 	   $(SRC_DIR)print_shop.c \
 	   $(SRC_DIR)utilities.c \
-	   $(SRC_DIR)press.c
+	   $(SRC_DIR)press.c \
+	   $(SRC_DIR)press_type.c
 
 OBJ_DIR = obj/
 OBJ_LIBFT = libft/*.o
