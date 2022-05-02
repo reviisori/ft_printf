@@ -15,18 +15,15 @@
 char	*ft_strcasechr(char const *s, int c)
 {
 	char	*ptr;
-	size_t	i;
+	int		ch;
 
-	ptr = ((char *) NULL);
-	i = 0;
-	while (i < ft_strlen(s) + 1)
+	ptr = (char *) s;
+	ch = ft_tolower(c);
+	while (ft_tolower(*ptr) != ch)
 	{
-		if (ft_tolower(s[i]) == ft_tolower(c))
-		{
-			ptr = ((char *) &s[i]);
-			return (ptr);
-		}
-		i++;
+		if (*ptr == '\0')
+			return (NULL);
+		ptr++;
 	}
 	return (ptr);
 }
