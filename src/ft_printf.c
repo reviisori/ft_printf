@@ -11,13 +11,13 @@
 /* ************************************************************************** */
 
 /*
-													[|]
-#	%[ $ ][ flags ][width][.precision][  lenght  ]conversion
-#	       '#-+ 0'	all	   !c & !p	  			  c s p
-#									   hh,h,l,ll  d i o u x X
-#									   l,L	      f
-
-*/
+ *													[|]
+ *	%[ $ ][ flags ][width][.precision][  lenght  ]conversion
+ *	       '#-+ 0'	all	   !c & !p	  			  c s p
+ *									   hh,h,l,ll  d i o u x X
+ *									   l,L	      f
+ *
+ */
 
 #include "ft_printf.h"
 
@@ -32,6 +32,7 @@ int	ft_printf(const char *format, ...)
 	va_end(ap);
 	if (len < 0)
 	{
+		//REMOVE
 		ft_putendl("*ERROR*: print shop burned down");
 		return (len);
 	}
