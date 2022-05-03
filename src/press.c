@@ -29,12 +29,14 @@ int	press(t_vec *dest, const char *format, t_stat attr)
 			//	  [width]
 			//		[.preci]
 			//		  [lenght]
-			press_type(dest, &p, &attr);
+			if (press_type(dest, &p, &attr) < 0)
+				return (-1);
 			format = p;
 		}
-		p++;
+		if (*p)
+			p++;
 	}
 	if (ft_vecncat(dest, format, (p - format)) < 0)
 		return (-1);
-	return (0);
+	return (1);
 }
