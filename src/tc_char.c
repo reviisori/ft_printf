@@ -11,16 +11,14 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
 #include "vec.h"
 
 int	tc_char(t_vec *dest, t_stat *attr)
 {
-	size_t	len;
-	char	type;
+	char	c;
 
-	len = dest->len;
-	type = attr->type;
-	ft_putendl("CHAR - nothing here yet");
+	c = va_arg(attr->ap, int);
+	if (ft_vecpush(dest, &c) < 0)
+		return (-1);
 	return (1);
 }
