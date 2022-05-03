@@ -19,9 +19,11 @@ int	press(t_vec *dest, const char *format, t_stat attr)
 	p = format;
 	while (*p)
 	{
-		if (*p == '%')
+		if (*p++ == '%')
 		{
-			if (ft_vecncat(dest, format, (p - format)) < 0)
+			if (!*p)
+				return (1);
+			if (ft_vecncat(dest, format, ((p - 1) - format)) < 0)
 				return (-1);
 			reset_stats(&attr);
 			//[--$--]
@@ -33,8 +35,6 @@ int	press(t_vec *dest, const char *format, t_stat attr)
 				return (-1);
 			format = p;
 		}
-		if (*p)
-			p++;
 	}
 	if (ft_vecncat(dest, format, (p - format)) < 0)
 		return (-1);
