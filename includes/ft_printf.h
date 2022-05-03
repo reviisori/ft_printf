@@ -18,7 +18,12 @@
 # include <stdarg.h>
 # include "vec.h"
 
-# define TYPE_FIELD "cdfiopsux"
+# define TYPES "cdfiopsux"
+# define FLAGS "#-+ 0"
+
+/*
+ *	typedef enum { false, true } bool;
+ */
 
 typedef struct s_stat
 {
