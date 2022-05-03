@@ -17,10 +17,10 @@ static int	get_index(const char c)
 {
 	char	*p;
 
-	p = ft_strcasechr(TYPE_FIELD, c);
+	p = ft_strcasechr(TYPES, c);
 	if (!p)
 		return (-1);
-	return (p - TYPE_FIELD);
+	return (p - TYPES);
 }
 
 int	press_type(t_vec *dest, const char **fptr, t_stat *attr)
