@@ -28,9 +28,7 @@ int	press_type(t_vec *dest, const char **fptr, t_stat *attr)
 	t_jump	disp;
 	int		i;
 
-	(*fptr)++;
-	attr->type = **fptr;
-	(*fptr)++;
+	attr->type = *(*fptr)++;
 	i = get_index(attr->type);
 	if (i < 0)
 	{
