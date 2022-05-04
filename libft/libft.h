@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:46:38 by altikka           #+#    #+#             */
-/*   Updated: 2022/04/19 12:06:51 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/04 12:45:33 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include <stdint.h>
 
 # include "get_next_line.h"
 
@@ -98,5 +99,8 @@ char	*ft_strcasestr(char const *haystack, char const *needle);
 char	*ft_strrev(char *str);
 
 int		ft_sqrt(int nb);
+
+size_t	ft_anylen(uintmax_t n, int base, int sign);
+char	*ft_anytoa(uintmax_t n, int base, int sign, int casing);
 
 #endif
