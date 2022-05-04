@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 12:42:13 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/04 12:46:47 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/04 13:49:29 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 size_t	ft_anylen(uintmax_t n, int base, int sign)
 {
-	size_t len;
+	size_t	len;
 
 	if (n == 0)
 		return (1);
