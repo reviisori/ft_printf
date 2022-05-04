@@ -7,7 +7,7 @@
 *.o
 *libft.a
 *libftprintf.a
-test*
+*test*
 .vscode/
 *.dSYM
 a.out
