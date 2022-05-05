@@ -11,16 +11,10 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
 #include "vec.h"
 
 int	tc_ptr(t_vec *dest, t_stat *attr)
 {
-	size_t	len;
-	char	type;
-
-	len = dest->len;
-	type = attr->type;
-	ft_putendl("PTR - nothing here yet");
-	return (1);
+	attr->lenght = l;
+	return (tc_num(dest, attr));
 }
