@@ -6,7 +6,7 @@
 #    By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/28 13:24:47 by altikka           #+#    #+#              #
-#    Updated: 2022/05/02 16:14:01 by altikka          ###   ########.fr        #
+#    Updated: 2022/05/05 14:01:07 by altikka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRCS = $(SRC_DIR)ft_printf.c \
 	   $(SRC_DIR)tc_dbl.c \
 	   $(SRC_DIR)tc_num.c \
 	   $(SRC_DIR)tc_ptr.c \
-	   $(SRC_DIR)tc_str.c
+	   $(SRC_DIR)tc_str.c \
+	   $(SRC_DIR)handlers.c
 
 OBJ_DIR = obj/
 OBJ_LIBFT = libft/*.o
