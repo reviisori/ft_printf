@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 14:08:42 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/02 16:03:30 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/05 09:47:07 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 # define TYPES "cdfiopsux"
 # define FLAGS "#-+ 0"
 
+# define FALSE 0
+# define TRUE 1
+
 /*
  *	typedef enum { false, true } bool;
  */
@@ -28,7 +31,7 @@
 typedef struct s_stat
 {
 	va_list			ap;
-	long			value;
+	long			val;
 	int				sign;
 	unsigned int	is_signed;	// : 1 [on/off]
 	unsigned int	flags;		// : 5 [#-+ 0]
