@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 13:33:47 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/05 14:00:47 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/05 16:31:33 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ char	*handle_int(t_stat *attr)
 	attr->sign = (1 - 2 * (attr->val < 0));
 	if (attr->is_signed)
 		attr->val *= attr->sign;
-	str = ft_anytoa(attr->val, set_base(attr->type), attr->sign, (attr->type == 'X'));
+	str = ft_anytoa(attr->val,
+			set_base(attr->type), attr->sign, (attr->type == 'X'));
 	if (!str)
 		return (NULL);
 	return (str);
