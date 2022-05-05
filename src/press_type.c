@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 13:17:17 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/02 16:26:54 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/05 09:44:50 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	press_type(t_vec *dest, const char **fptr, t_stat *attr)
 	int		i;
 
 	attr->type = *(*fptr)++;
+	if (attr->type == 'd' || attr->type == 'i' || attr->type == 'f')
+		attr->is_signed = TRUE;
 	i = get_index(attr->type);
 	if (i < 0)
 	{
