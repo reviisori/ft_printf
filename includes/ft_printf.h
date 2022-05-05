@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 14:08:42 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/05 12:25:05 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/05 16:17:01 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,12 @@
 # define FT_PRINTF_H
 
 # include <unistd.h>
-# include <stdbool.h>
 # include <stdarg.h>
 # include "handl.h"
 # include "vec.h"
 
 # define TYPES "cdfiopsux"
 # define FLAGS "#-+ 0"
-
-typedef struct s_stat
-{
-	va_list			ap;
-	long			val;
-	int				sign;
-	bool			is_signed;
-	bool			hash;
-	bool			dash;
-	bool			plus;
-	bool			space;
-	bool			zero;
-	unsigned int	width;
-	unsigned int	preci;
-	bool			preci_on;
-	t_len			lenght;
-	char			type;
-	char			pad;
-}			t_stat;
 
 int		tc_char(t_vec *dest, t_stat *attr);
 int		tc_dbl(t_vec *dest, t_stat *attr);
