@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 14:08:42 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/05 09:47:07 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/05 12:25:05 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,29 @@
 # define FT_PRINTF_H
 
 # include <unistd.h>
+# include <stdbool.h>
 # include <stdarg.h>
+# include "handl.h"
 # include "vec.h"
 
 # define TYPES "cdfiopsux"
 # define FLAGS "#-+ 0"
-
-# define FALSE 0
-# define TRUE 1
-
-/*
- *	typedef enum { false, true } bool;
- */
 
 typedef struct s_stat
 {
 	va_list			ap;
 	long			val;
 	int				sign;
-	unsigned int	is_signed;	// : 1 [on/off]
-	unsigned int	flags;		// : 5 [#-+ 0]
+	bool			is_signed;
+	bool			hash;
+	bool			dash;
+	bool			plus;
+	bool			space;
+	bool			zero;
 	unsigned int	width;
 	unsigned int	preci;
-	unsigned int	preci_on;	// : 1 [on/off]
-	unsigned int	lenght;		// : 3 [hh,h,l,ll] [l,L]
+	bool			preci_on;
+	t_len			lenght;
 	char			type;
 	char			pad;
 }			t_stat;
@@ -68,6 +67,7 @@ int		print_shop(char **str, const char *format, va_list ap);
 int		press(t_vec *dest, const char *format, t_stat attr);
 void	init_stats(t_stat *attr, va_list ap);
 void	reset_stats(t_stat *attr);
+int		set_base(const char c);
 int		press_type(t_vec *dest, const char **fptr, t_stat *attr);
 
 #endif
