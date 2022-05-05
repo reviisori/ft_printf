@@ -44,7 +44,16 @@ char	*handle_int(t_stat *attr)
 
 char	*handle_long(t_stat *attr)
 {
-	attr->val = 0;
-	ft_putendl("[ll][l][L]: Wrong castle Mario.");
-	return (NULL);
+	char	*str;
+
+	attr->val = va_arg(attr->ap, long);
+	attr->sign = (1 - 2 * (attr->val < 0));
+	if (attr->is_signed)
+		attr->val *= attr->sign;
+	str = ft_anytoa((unsigned long ) attr->val,
+			set_base(attr->type), attr->sign, (attr->type == 'X'));
+	if (!str)
+		return (NULL);
+	return (str);
+
 }
