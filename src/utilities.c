@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 14:30:47 by altikka           #+#    #+#             */
-/*   Updated: 2022/04/29 15:40:44 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/05 09:47:33 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	init_stats(t_stat *attr, va_list ap)
 
 void	reset_stats(t_stat *attr)
 {
-	attr->value = 0;
+	attr->val = 0;
 	attr->sign = 0;
 	attr->is_signed = 0;
 	attr->flags = 0;
