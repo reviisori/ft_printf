@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 13:33:47 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/05 16:31:33 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/06 13:41:44 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,4 @@ char	*handle_long(t_stat *attr)
 	if (!str)
 		return (NULL);
 	return (str);
-
 }
