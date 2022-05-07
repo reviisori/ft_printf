@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:46:38 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/04 12:45:33 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/07 11:34:02 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,6 @@ int		ft_sqrt(int nb);
 
 size_t	ft_anylen(uintmax_t n, int base, int sign);
 char	*ft_anytoa(uintmax_t n, int base, int sign, int casing);
+long	ft_pow(long x, long y);
 
 #endif
