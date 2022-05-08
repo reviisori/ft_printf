@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:10:57 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/08 22:16:41 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/08 23:14:46 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ static int	pad_dbl(t_vec *dest, size_t dec_len, unsigned int preci)
 	return (1);
 }
 
-static int	add_parts(t_vec *dest, const char *whl,
-					const char *dec, unsigned int preci)
+static int	add_parts(t_vec *dest, char *whl, char *dec, unsigned int preci)
 {
 	size_t	whl_len;
 	size_t	dec_len;
@@ -36,6 +35,7 @@ static int	add_parts(t_vec *dest, const char *whl,
 	if (ft_vecncat(dest, whl, whl_len) < 0)
 	{
 		ft_strdel(&whl);
+		ft_strdel(&dec);
 		return (-1);
 	}
 	ft_strdel(&whl);
@@ -68,6 +68,7 @@ static int	get_and_round(t_vec *dest, long double val,
 		d = (d / 10) + 1;
 		if ((unsigned int ) ft_intlen(d) > preci)
 		{
+			ft_strdel(&whl);
 			whl = ft_anytoa((unsigned long ) val + 1, 10, attr->sign, false);
 			d = 0;
 		}
@@ -95,5 +96,6 @@ int	tc_dbl(t_vec *dest, t_stat *attr)
 		return (-1);
 	if (ft_vecappend(dest, &temp) < 0)
 		return (-1);
+	ft_vecdel(&temp);
 	return (1);
 }
