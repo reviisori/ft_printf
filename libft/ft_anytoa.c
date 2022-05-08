@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 11:18:59 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/04 12:43:56 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/08 22:27:28 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ static char	*set_case(int casing)
 
 static char	*anytoacpy(char *dst, uintmax_t n, int base, char *conv)
 {
-	if (n / base != 0)
-		dst = anytoacpy(dst, (n / base), base, conv);
-	*dst++ = conv[n % base];
+	if (n / (unsigned long ) base != 0)
+		dst = anytoacpy(dst, (n / (unsigned long ) base), base, conv);
+	*dst++ = conv[n % (unsigned long ) base];
 	*dst = '\0';
 	return (dst);
 }
