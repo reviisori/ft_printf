@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 11:30:13 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/07 11:33:07 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/08 22:18:22 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,4 @@ long	ft_pow(long x, long y)
 	while (y-- > 0)
 		n *= x;
 	return (n);
-
 }
