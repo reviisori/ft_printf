@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:10:57 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/08 23:14:46 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/09 13:59:06 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,14 @@ static int	add_parts(t_vec *dest, char *whl, char *dec, unsigned int preci)
 }
 
 static int	get_and_round(t_vec *dest, long double val,
-					unsigned int preci, t_stat *attr)
+					unsigned int preci, t_stat *info)
 {
 	char			*whl;
 	char			*dec;
 	long double		d;
 	unsigned int	mdl;
 
-	whl = ft_anytoa((unsigned long ) val, 10, attr->sign, false);
+	whl = ft_anytoa((unsigned long ) val, 10, info->sign, false);
 	d = (val - (unsigned long ) val) * ft_pow(10, preci + 1);
 	mdl = (unsigned long ) d % 10;
 	if (mdl >= 5)
@@ -69,7 +69,7 @@ static int	get_and_round(t_vec *dest, long double val,
 		if ((unsigned int ) ft_intlen(d) > preci)
 		{
 			ft_strdel(&whl);
-			whl = ft_anytoa((unsigned long ) val + 1, 10, attr->sign, false);
+			whl = ft_anytoa((unsigned long ) val + 1, 10, info->sign, false);
 			d = 0;
 		}
 	}
@@ -79,20 +79,20 @@ static int	get_and_round(t_vec *dest, long double val,
 	return (add_parts(dest, whl, dec, preci));
 }
 
-int	tc_dbl(t_vec *dest, t_stat *attr)
+int	tc_dbl(t_vec *dest, t_stat *info)
 {
 	long double		val;
 	unsigned int	preci;
 	t_vec			temp;
 
-	val = va_arg(attr->ap, double);
-	attr->sign = 1 - 2 * (val < 0);
+	val = va_arg(info->ap, double);
+	info->sign = 1 - 2 * (val < 0);
 	if (val < 0)
 		val *= -1;
-	preci = 6 * !attr->preci_on + attr->preci;
+	preci = 6 * !info->preci_on + info->preci;
 	if (ft_vecnew(&temp, 1, sizeof(char)) < 0)
 		return (-1);
-	if (get_and_round(&temp, val, preci, attr) < 0)
+	if (get_and_round(&temp, val, preci, info) < 0)
 		return (-1);
 	if (ft_vecappend(dest, &temp) < 0)
 		return (-1);

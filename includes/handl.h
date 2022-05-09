@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 10:28:17 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/05 16:37:38 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/09 13:55:21 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ typedef struct s_stat
 	char			pad;
 }			t_stat;
 
-char	*handle_char(t_stat *attr);
-char	*handle_short(t_stat *attr);
-char	*handle_int(t_stat *attr);
-char	*handle_long(t_stat *attr);
+char	*handle_char(t_stat *info);
+char	*handle_short(t_stat *info);
+char	*handle_int(t_stat *info);
+char	*handle_long(t_stat *info);
 
 typedef char			*(*t_handler)(t_stat *);
 

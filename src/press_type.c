@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 13:17:17 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/06 13:59:16 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/09 13:58:12 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,15 @@ static int	get_index(const char c)
 	return (p - TYPES);
 }
 
-int	press_type(t_vec *dest, const char **fptr, t_stat *attr)
+int	press_type(t_vec *dest, const char **fptr, t_stat *info)
 {
 	t_jump	disp;
 	int		i;
 
-	attr->type = *(*fptr)++;
-	if (attr->type == 'd' || attr->type == 'i' || attr->type == 'f')
-		attr->is_signed = true;
-	i = get_index(attr->type);
+	info->type = *(*fptr)++;
+	if (info->type == 'd' || info->type == 'i' || info->type == 'f')
+		info->is_signed = true;
+	i = get_index(info->type);
 	if (i < 0)
 	{
 		//DELETE
@@ -39,5 +39,5 @@ int	press_type(t_vec *dest, const char **fptr, t_stat *attr)
 		return (-1);
 	}
 	disp = g_jump[i];
-	return (disp(dest, attr));
+	return (disp(dest, info));
 }

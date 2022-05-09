@@ -6,17 +6,17 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:12:42 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/06 12:51:19 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/09 13:59:36 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "vec.h"
 
-int	tc_ptr(t_vec *dest, t_stat *attr)
+int	tc_ptr(t_vec *dest, t_stat *info)
 {
-	attr->lenght = l;
+	info->lenght = l;
 	if (ft_vecncat(dest, "0x", 2) < 0)
 		return (-1);
-	return (tc_num(dest, attr));
+	return (tc_num(dest, info));
 }

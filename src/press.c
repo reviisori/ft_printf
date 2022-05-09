@@ -6,13 +6,13 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 14:21:41 by altikka           #+#    #+#             */
-/*   Updated: 2022/04/29 15:40:02 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/09 13:57:58 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	press(t_vec *dest, const char *format, t_stat attr)
+int	press(t_vec *dest, const char *format, t_stat info)
 {
 	const char	*p;
 
@@ -25,13 +25,13 @@ int	press(t_vec *dest, const char *format, t_stat attr)
 				return (1);
 			if (ft_vecncat(dest, format, ((p - 1) - format)) < 0)
 				return (-1);
-			reset_stats(&attr);
+			reset_stats(&info);
 			//[--$--]
 			//  [flags]
 			//	  [width]
 			//		[.preci]
 			//		  [lenght]
-			if (press_type(dest, &p, &attr) < 0)
+			if (press_type(dest, &p, &info) < 0)
 				return (-1);
 			format = p;
 		}

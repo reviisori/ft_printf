@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 14:30:47 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/05 12:24:32 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/09 13:57:32 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,26 +22,26 @@ int	set_base(const char c)
 		return (10);
 }
 
-void	init_stats(t_stat *attr, va_list ap)
+void	init_stats(t_stat *info, va_list ap)
 {
-	va_copy(attr->ap, ap);
-	reset_stats(attr);
+	va_copy(info->ap, ap);
+	reset_stats(info);
 }
 
-void	reset_stats(t_stat *attr)
+void	reset_stats(t_stat *info)
 {
-	attr->val = 0;
-	attr->sign = 0;
-	attr->is_signed = false;
-	attr->hash = false;
-	attr->dash = false;
-	attr->plus = false;
-	attr->space = false;
-	attr->zero = false;
-	attr->width = 0;
-	attr->preci = 0;
-	attr->preci_on = false;
-	attr->lenght = 0;
-	attr->type = ' ';
-	attr->pad = ' ';
+	info->val = 0;
+	info->sign = 0;
+	info->is_signed = false;
+	info->hash = false;
+	info->dash = false;
+	info->plus = false;
+	info->space = false;
+	info->zero = false;
+	info->width = 0;
+	info->preci = 0;
+	info->preci_on = false;
+	info->lenght = 0;
+	info->type = ' ';
+	info->pad = ' ';
 }
