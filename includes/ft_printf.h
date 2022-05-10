@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 14:08:42 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/09 13:56:05 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/10 13:44:15 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,13 @@ static const t_jump	g_jump[9] = {
 	tc_num		//xX
 };
 
-int		ft_printf(const char *format, ...);
-int		print_shop(char **str, const char *format, va_list ap);
-int		press(t_vec *dest, const char *format, t_stat info);
-void	init_stats(t_stat *info, va_list ap);
-void	reset_stats(t_stat *info);
-int		set_base(const char c);
-int		press_type(t_vec *dest, const char **fptr, t_stat *info);
+int			ft_printf(const char *format, ...);
+int			print_shop(char **str, const char *format, va_list ap);
+int			press(t_vec *dest, const char *format, t_stat info);
+int			press_type(t_vec *dest, const char **fptr, t_stat *info);
+long double	round_dbl(long double val, unsigned int preci);
+void		init_stats(t_stat *info, va_list ap);
+void		reset_stats(t_stat *info);
+int			set_base(const char c);
 
 #endif
