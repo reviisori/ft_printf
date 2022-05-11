@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 13:33:47 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/11 10:33:33 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/11 11:35:36 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,17 @@
 
 char	*handle_char(t_stat *info)
 {
-	info->val = 0;
-	ft_putendl("[hh]: Wrong castle Mario.");
-	return (NULL);
+	char	*str;
+
+	info->val = va_arg(info->ap, int);
+	info->sign = 1 - (2 * (info->val < 0));
+	if (info->is_signed)
+		info->val *= info->sign;
+	str = ft_anytoa((unsigned char ) info->val,
+			set_base(info->type), info->sign, (info->type == 'X'));
+	if (!str)
+		return (NULL);
+	return (str);
 }
 
 char	*handle_short(t_stat *info)
@@ -25,12 +33,12 @@ char	*handle_short(t_stat *info)
 	char	*str;
 
 	info->val = va_arg(info->ap, int);
-	info->sign = 1 - (2 *(short ) (info->val < 0));
+	info->sign = 1 - (2 * (info->val < 0));
 	if (info->is_signed)
 		info->val *= info->sign;
 	str = ft_anytoa((unsigned short ) info->val,
 			set_base(info->type), info->sign, (info->type == 'X'));
-if (!str)
+	if (!str)
 		return (NULL);
 	return (str);
 }
