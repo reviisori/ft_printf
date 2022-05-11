@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:10:57 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/11 10:31:14 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/11 14:06:32 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,10 @@ int	tc_dbl(t_vec *dest, t_stat *info)
 	long double		val;
 	t_vec			temp;
 
-	val = va_arg(info->ap, double);
+	if (info->lenght == L)
+		val = va_arg(info->ap, long double);
+	else
+		val = va_arg(info->ap, double);
 	info->sign = 1 - (2 * (val < 0));
 	if (info->is_signed)
 		val *= info->sign;
