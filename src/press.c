@@ -6,11 +6,16 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 14:21:41 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/11 21:55:14 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/12 14:57:53 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+//#include <stdio.h>//del
+			//printf("preci: %d\n", info.preci);//del
+			//printf("on/off: %d\n", info.preci_on);//del
+			//printf("fptr: %s\n", p);//del
+
 
 int	press(t_vec *dest, const char *format, t_stat info)
 {
@@ -30,6 +35,7 @@ int	press(t_vec *dest, const char *format, t_stat info)
 			//  [flags]
 			//	  [width]
 			//		[.preci]
+			inves_preci(&p, &info);
 			inves_lenght(&p, &info);
 			if (press_type(dest, &p, &info) < 0)
 				return (-1);
