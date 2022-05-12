@@ -6,7 +6,7 @@
 #    By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/28 13:24:47 by altikka           #+#    #+#              #
-#    Updated: 2022/05/11 21:54:05 by altikka          ###   ########.fr        #
+#    Updated: 2022/05/12 14:08:15 by altikka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRCS = $(SRC_DIR)ft_printf.c \
 	   $(SRC_DIR)print_shop.c \
 	   $(SRC_DIR)utilities.c \
 	   $(SRC_DIR)press.c \
+	   $(SRC_DIR)inves_preci.c \
 	   $(SRC_DIR)inves_lenght.c \
 	   $(SRC_DIR)press_type.c \
 	   $(SRC_DIR)tc_char.c \
