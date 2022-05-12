@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:10:57 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/11 14:06:32 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/12 12:33:18 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 #include "libft.h"
 #include "vec.h"
 
-static int	pad_dbl(t_vec *dest, size_t dec_len, t_stat *info)
+static int	pad_after_point(t_vec *dest, size_t dec_len, t_stat *info)
 {
 	int	pad;
 
-	pad = info->preci - dec_len;
+	pad = info->preci - (int ) dec_len;
 	while (pad-- > 0)
 		if (ft_vecpush(dest, "0") < 0)
 			return (-1);
@@ -35,7 +35,7 @@ static int	add_point(t_vec *dest, char *dec, size_t dec_len, t_stat *info)
 			ft_vecdel(dest);
 			return (-1);
 		}
-		if (pad_dbl(dest, dec_len, info) < 0)
+		if (pad_after_point(dest, dec_len, info) < 0)
 		{
 			ft_strdel(&dec);
 			ft_vecdel(dest);
