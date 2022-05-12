@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 14:08:42 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/12 14:08:39 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/12 19:36:11 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@
 # define TYPES "cdfiopsux"
 # define FLAGS "#-+ 0"
 
-int		tc_char(t_vec *dest, t_stat *info);
-int		tc_dbl(t_vec *dest, t_stat *info);
-int		tc_num(t_vec *dest, t_stat *info);
-int		tc_ptr(t_vec *dest, t_stat *info);
-int		tc_str(t_vec *dest, t_stat *info);
+int			tc_char(t_vec *dest, t_stat *info);
+int			tc_dbl(t_vec *dest, t_stat *info);
+int			tc_num(t_vec *dest, t_stat *info);
+int			tc_ptr(t_vec *dest, t_stat *info);
+int			tc_str(t_vec *dest, t_stat *info);
 
 typedef int			(*t_jump)(t_vec *, t_stat *);
 
