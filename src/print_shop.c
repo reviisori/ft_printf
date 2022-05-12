@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 18:36:48 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/09 13:58:27 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/12 14:34:21 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ int	print_shop(char **str, const char *format, va_list ap)
 	init_stats(&info, ap);
 	ret = press(&print, format, info);
 	if (ret < 0)
+	{
+		ft_vecdel(&print);
 		return (-1);
+	}
 	*str = print.data;
 	va_end(info.ap);
 	return (print.len);
