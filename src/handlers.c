@@ -6,12 +6,36 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 13:33:47 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/11 11:35:36 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/13 13:22:26 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
+
+char	*pad_num(t_stat *info, char *str)
+{
+	char			*pad;
+	char			*res;
+	size_t			len;
+
+	if (info->preci_on)
+	{
+		len = (unsigned int ) ft_strlen(str);
+		if (info->preci > len)
+		{
+			//maybe call mum
+			len = info->preci - len;
+			pad = ft_strnew(len);
+			ft_memset(pad, '0', len);
+			res = ft_strjoin(pad, str);
+			ft_strdel(&pad);
+			ft_strdel(&str);
+			return (res);
+		}
+	}
+	return (str);
+}
 
 char	*handle_char(t_stat *info)
 {
@@ -25,7 +49,7 @@ char	*handle_char(t_stat *info)
 			set_base(info->type), info->sign, (info->type == 'X'));
 	if (!str)
 		return (NULL);
-	return (str);
+	return(pad_num(info, str));
 }
 
 char	*handle_short(t_stat *info)
@@ -40,7 +64,7 @@ char	*handle_short(t_stat *info)
 			set_base(info->type), info->sign, (info->type == 'X'));
 	if (!str)
 		return (NULL);
-	return (str);
+	return(pad_num(info, str));
 }
 
 char	*handle_int(t_stat *info)
@@ -55,7 +79,7 @@ char	*handle_int(t_stat *info)
 			set_base(info->type), info->sign, (info->type == 'X'));
 	if (!str)
 		return (NULL);
-	return (str);
+	return(pad_num(info, str));
 }
 
 char	*handle_long(t_stat *info)
@@ -70,5 +94,5 @@ char	*handle_long(t_stat *info)
 			set_base(info->type), info->sign, (info->type == 'X'));
 	if (!str)
 		return (NULL);
-	return (str);
+	return(pad_num(info, str));
 }
