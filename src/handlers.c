@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 13:33:47 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/13 13:25:22 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/13 20:02:05 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,14 @@ char	*pad_num(t_stat *info, char *str)
 	char			*res;
 	size_t			len;
 
+	if (!info->val && info->preci_on)
+	{
+		*str = '\0';
+		return (str);
+	}
 	if (info->preci_on)
 	{
-		len = (unsigned int ) ft_strlen(str);
+		len = ft_strlen(str);
 		if (info->preci > len)
 		{
 			//maybe call mum
@@ -42,7 +47,7 @@ char	*handle_char(t_stat *info)
 	char	*str;
 
 	info->val = va_arg(info->ap, int);
-	info->sign = 1 - (2 * (info->val < 0));
+	info->sign = 1 - (2 * ((char ) info->val < 0));
 	if (info->is_signed)
 		info->val *= info->sign;
 	str = ft_anytoa((unsigned char ) info->val,
@@ -57,7 +62,7 @@ char	*handle_short(t_stat *info)
 	char	*str;
 
 	info->val = va_arg(info->ap, int);
-	info->sign = 1 - (2 * (info->val < 0));
+	info->sign = 1 - (2 * ((short ) info->val < 0));
 	if (info->is_signed)
 		info->val *= info->sign;
 	str = ft_anytoa((unsigned short ) info->val,
@@ -75,7 +80,7 @@ char	*handle_int(t_stat *info)
 	info->sign = 1 - (2 * (info->val < 0));
 	if (info->is_signed)
 		info->val *= info->sign;
-	str = ft_anytoa(info->val,
+	str = ft_anytoa((unsigned int )info->val,
 			set_base(info->type), info->sign, (info->type == 'X'));
 	if (!str)
 		return (NULL);
