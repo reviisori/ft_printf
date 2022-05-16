@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 14:30:47 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/16 15:34:56 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/16 18:21:25 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	pad(t_vec *dest, int len, char c, int prompt)
 	if (prompt == 0)
 		return (-1);
 	while (len-- > 0)
-		if(ft_vecpush(dest, &c) < 0)
+		if (ft_vecpush(dest, &c) < 0)
 			return (-1);
 	return (1);
 }
