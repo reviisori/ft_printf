@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 10:28:17 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/09 13:55:21 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/16 15:39:45 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,7 @@ static const t_handler	g_handler[6] = {
 	handle_long,
 	handle_long
 };
+
+char	*pad_nums_front(t_stat *info, size_t len);
 
 #endif
