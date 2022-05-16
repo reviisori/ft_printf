@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 14:30:47 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/09 13:57:32 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/16 15:34:56 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,16 @@ int	set_base(const char c)
 		return (8);
 	else
 		return (10);
+}
+
+int	pad(t_vec *dest, int len, char c, int prompt)
+{
+	if (prompt == 0)
+		return (-1);
+	while (len-- > 0)
+		if(ft_vecpush(dest, &c) < 0)
+			return (-1);
+	return (1);
 }
 
 void	init_stats(t_stat *info, va_list ap)
