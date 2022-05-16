@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 15:40:33 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/16 21:06:43 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/16 21:29:39 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ static char	*format_preci(t_stat *info, size_t len)
 		temp = ft_strnew(len);
 		ft_memset(temp, '0', len);
 		res = ft_strjoin(sign, temp);
-		ft_strdel(&sign);
 		ft_strdel(&temp);
+		ft_strdel(&sign);
 		return (res);
 	}
 	else
