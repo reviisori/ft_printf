@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 15:40:33 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/16 20:46:59 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/16 21:06:43 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char	*format_width(t_stat *info, char *pad, size_t len)
 
 	if (info->width > len)
 	{
-		if (info->preci_on)
+		if (info->preci)
 			len = info->width - info->preci - (info->sign == -1);
 		else
 			len = info->width - len - (info->sign == -1);
@@ -64,6 +64,8 @@ static char	*format_preci(t_stat *info, size_t len)
 		ft_strdel(&temp);
 		return (res);
 	}
+	else
+		info->preci = 0;
 	return (sign);
 }
 
