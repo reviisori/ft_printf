@@ -6,7 +6,7 @@
 #    By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/28 13:24:47 by altikka           #+#    #+#              #
-#    Updated: 2022/05/14 11:25:28 by altikka          ###   ########.fr        #
+#    Updated: 2022/05/16 14:30:12 by altikka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRCS = $(SRC_DIR)ft_printf.c \
 	   $(SRC_DIR)print_shop.c \
 	   $(SRC_DIR)utilities.c \
 	   $(SRC_DIR)press.c \
+	   $(SRC_DIR)inves_width.c \
 	   $(SRC_DIR)inves_preci.c \
 	   $(SRC_DIR)inves_lenght.c \
 	   $(SRC_DIR)press_type.c \
@@ -35,7 +36,7 @@ OBJ_DIR = obj/
 OBJ_LIBFT = libft/*.o
 OBJS = $(SRCS:$(SRC_DIR)%.c=$(OBJ_DIR)%.o) $(OBJ_LIBFT)
 
-FLGS = -Wall -Wextra -Werror
+FLGS = -Wall -Wextra -Werror -g
 
 NCOLOR = \033[0m
 LGRAY = \033[1;30m
