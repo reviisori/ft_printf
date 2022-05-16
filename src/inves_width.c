@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 13:53:49 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/16 14:11:37 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/16 21:48:58 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	inves_width(const char **fptr, t_stat *info)
 	info->width = (unsigned int ) ft_atoi(*fptr);
 	if (info->width)
 	{
-		hop = ft_anylen(info->preci, 10, 1);
+		hop = ft_anylen(info->width, 10, 1);
 		(*fptr) = (*fptr) + hop;
 	}
 	while (**fptr == '0')
