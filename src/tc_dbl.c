@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:10:57 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/13 12:59:21 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/16 15:11:05 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 static int	pad_after_point(t_vec *dest, size_t dec_len, t_stat *info)
 {
-	size_t	len;
+	int	len;
 
 	len = info->preci - dec_len;
 	while (len-- > 0)
