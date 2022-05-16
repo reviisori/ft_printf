@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 13:33:47 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/16 13:47:44 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/16 15:36:25 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char	*pad_num(t_stat *info, char *str)
 
 	if (!info->val && info->preci_on)
 		*str = '\0';
-	pad = coat_nums_front(info, ft_strlen(str));
+	pad = pad_nums_front(info, ft_strlen(str));
 	res = ft_strjoin(pad, str);
 	ft_strdel(&pad);
 	ft_strdel(&str);
