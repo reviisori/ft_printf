@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 15:40:33 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/16 18:08:08 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/16 20:46:59 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ static char	*format_width(t_stat *info, char *pad, size_t len)
 	if (info->width > len)
 	{
 		if (info->preci_on)
-			len = info->width - info->preci - (info->is_signed);
+			len = info->width - info->preci - (info->sign == -1);
 		else
-			len = info->width - len - (info->is_signed);
+			len = info->width - len - (info->sign == -1);
 		temp = ft_strnew(len);
 		ft_memset(temp, ' ', len);
 		res = ft_strjoin(temp, pad);
