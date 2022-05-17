@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 14:08:42 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/16 15:39:47 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/17 18:56:22 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,6 @@ long double	round_dbl(long double val, unsigned int preci);
 void		init_stats(t_stat *info, va_list ap);
 void		reset_stats(t_stat *info);
 int			set_base(const char c);
+int			pad(t_vec *dest, int len, char c, int flag);
 
 #endif
