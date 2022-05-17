@@ -6,11 +6,24 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 14:30:47 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/17 19:10:42 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/17 21:54:41 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+char	*set_prefix(t_stat *info, char *str)
+{
+	char	*res;
+
+	if (info->type == 'p')//...|| (info->hash)) and other nonsense later
+	{
+		res = ft_strjoin("0x", str);
+		ft_strdel(&str);
+		return (res);
+	}
+	return (str);
+}
 
 int	set_base(const char c)
 {
@@ -32,12 +45,6 @@ int	pad(t_vec *dest, int len, char c, int flag)
 	return (1);
 }
 
-void	init_stats(t_stat *info, va_list ap)
-{
-	va_copy(info->ap, ap);
-	reset_stats(info);
-}
-
 void	reset_stats(t_stat *info)
 {
 	info->val = 0;
@@ -54,4 +61,10 @@ void	reset_stats(t_stat *info)
 	info->lenght = 0;
 	info->type = ' ';
 	info->pad = ' ';
+}
+
+void	init_stats(t_stat *info, va_list ap)
+{
+	va_copy(info->ap, ap);
+	reset_stats(info);
 }
