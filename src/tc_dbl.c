@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:10:57 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/16 15:11:05 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/17 23:25:29 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,65 +14,54 @@
 #include "libft.h"
 #include "vec.h"
 
-static int	pad_after_point(t_vec *dest, size_t dec_len, t_stat *info)
-{
-	int	len;
-
-	len = info->preci - dec_len;
-	while (len-- > 0)
-		if (ft_vecpush(dest, "0") < 0)
-			return (-1);
-	return (1);
-}
-
-static int	add_point(t_vec *dest, char *dec, size_t dec_len, t_stat *info)
+static int	add_point(t_vec *src, char *dec, size_t dec_len, t_stat *info)
 {
 	if (info->preci != 0)
 	{
-		if (ft_vecpush(dest, ".") < 0)
+		if (ft_vecpush(src, ".") < 0)
 		{
 			ft_strdel(&dec);
-			ft_vecdel(dest);
+			ft_vecdel(src);
 			return (-1);
 		}
-		if (pad_after_point(dest, dec_len, info) < 0)
+		if (pad(src, info->preci - dec_len, '0', 1) < 0)
 		{
 			ft_strdel(&dec);
-			ft_vecdel(dest);
+			ft_vecdel(src);
 			return (-1);
 		}
 	}
 	return (1);
 }
 
-static int	add_parts(t_vec *dest, char *whl, char *dec, t_stat *info)
+static int	add_parts(t_vec *src, char *whl, char *dec, t_stat *info)
 {
 	size_t	whl_len;
 	size_t	dec_len;
 
 	whl_len = ft_strlen(whl);
 	dec_len = ft_strlen(dec);
-	if (ft_vecncat(dest, whl, whl_len) < 0)
+	if (ft_vecncat(src, whl, whl_len) < 0)
 	{
 		ft_strdel(&whl);
 		ft_strdel(&dec);
-		ft_vecdel(dest);
+		ft_vecdel(src);
 		return (-1);
 	}
 	ft_strdel(&whl);
-	if (add_point(dest, dec, dec_len, info) < 0)
+	if (add_point(src, dec, dec_len, info) < 0)
 		return (-1);
-	if (info->preci != 0 && ft_vecncat(dest, dec, dec_len) < 0)
+	if (info->preci != 0 && ft_vecncat(src, dec, dec_len) < 0)
 	{
 		ft_strdel(&dec);
-		ft_vecdel(dest);
+		ft_vecdel(src);
 		return (-1);
 	}
 	ft_strdel(&dec);
 	return (1);
 }
 
-static int	get_parts(t_vec *dest, long double val, t_stat *info)
+static int	get_parts(t_vec *src, long double val, t_stat *info)
 {
 	char		*whl;
 	char		*dec;
@@ -81,7 +70,7 @@ static int	get_parts(t_vec *dest, long double val, t_stat *info)
 	whl = ft_anytoa((unsigned long ) val, 10, info->sign, false);
 	if (!whl)
 	{
-		ft_vecdel(dest);
+		ft_vecdel(src);
 		return (-1);
 	}
 	d = (val - (unsigned long ) val) * ft_pow(10, info->preci);
@@ -89,10 +78,34 @@ static int	get_parts(t_vec *dest, long double val, t_stat *info)
 	if (!dec)
 	{
 		ft_strdel(&whl);
-		ft_vecdel(dest);
+		ft_vecdel(src);
 		return (-1);
 	}
-	return (add_parts(dest, whl, dec, info));
+	return (add_parts(src, whl, dec, info));
+}
+
+static int	pad_dbl(t_vec *dest, t_vec *src, long double val, t_stat *info)
+{
+	//char	*pad;
+
+	if (get_parts(src, val, info) < 0)
+		return (-1);
+	//if (all-good)
+	//pad = pad_dbls_front(info, src->len);
+	//if (ft_vecncat(dest, pad, ft_strlen(pad)) < 0)
+	//{
+	//	ft_strdel(&pad);
+	//	ft_vecdel(src);
+	//	return (-1);
+	//}
+	//ft_strdel(&pad);
+	if (ft_vecappend(dest, src) < 0)
+	{
+		ft_vecdel(src);
+		return (-1);
+	}
+	ft_vecdel(src);
+	return (1);
 }
 
 int	tc_dbl(t_vec *dest, t_stat *info)
@@ -111,13 +124,5 @@ int	tc_dbl(t_vec *dest, t_stat *info)
 	val = round_dbl(val, info->preci);
 	if (ft_vecnew(&temp, 1, sizeof(char)) < 0)
 		return (-1);
-	if (get_parts(&temp, val, info) < 0)
-		return (-1);
-	if (ft_vecappend(dest, &temp) < 0)
-	{
-		ft_vecdel(&temp);
-		return (-1);
-	}
-	ft_vecdel(&temp);
-	return (1);
+	return (pad_dbl(dest, &temp, val, info));
 }
