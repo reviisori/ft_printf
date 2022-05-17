@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 15:45:28 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/13 08:21:54 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/17 19:02:55 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,11 @@ int	tc_str(t_vec *dest, t_stat *info)
 	len = ft_strlen(str);
 	if (info->preci_on && info->preci < len)
 		len = info->preci;
+	if (pad(dest, info->width - len, info->pad, !(info->dash)) < 0)
+		return (-1);
 	if (ft_vecncat(dest, str, len) < 0)
+		return (-1);
+	if (pad(dest, info->width - len, info->pad, (info->dash)) < 0)
 		return (-1);
 	return (1);
 }
