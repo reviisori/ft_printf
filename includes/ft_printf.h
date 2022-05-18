@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 14:08:42 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/17 18:56:22 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/18 11:10:16 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include "handl.h"
-# include "vec.h"
 
 # define TYPES "cdfiopsux"
 # define FLAGS "#-+ 0"
