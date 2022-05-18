@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:10:57 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/18 11:03:41 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/18 14:44:08 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ static int	get_parts(t_vec *src, long double val, t_stat *info)
 static int	pad_dbl(t_vec *dest, t_vec *src, long double val, t_stat *info)
 {
 	t_vec	temp;
+	size_t	len;
 
 	if (get_parts(src, val, info) < 0)
 		return (-1);
@@ -98,13 +99,15 @@ static int	pad_dbl(t_vec *dest, t_vec *src, long double val, t_stat *info)
 	src = pad_dbls_front(src, &temp, src->len, info);
 	if (!src)
 		return (-1);
+	len = src->len;
 	if (ft_vecappend(dest, src) < 0)
 	{
 		ft_vecdel(src);
 		return (-1);
 	}
 	ft_vecdel(src);
-	//pad();
+	if (pad(dest, info->width - len, info->pad, (info->dash)) < 0)
+		return (-1);
 	return (1);
 }
 
