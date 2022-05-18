@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:10:57 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/17 23:25:29 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/18 11:03:41 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static int	get_parts(t_vec *src, long double val, t_stat *info)
 	char		*dec;
 	long double	d;
 
-	whl = ft_anytoa((unsigned long ) val, 10, info->sign, false);
+	whl = ft_anytoa((unsigned long ) val, 10, 1, false);
 	if (!whl)
 	{
 		ft_vecdel(src);
@@ -86,25 +86,25 @@ static int	get_parts(t_vec *src, long double val, t_stat *info)
 
 static int	pad_dbl(t_vec *dest, t_vec *src, long double val, t_stat *info)
 {
-	//char	*pad;
+	t_vec	temp;
 
 	if (get_parts(src, val, info) < 0)
 		return (-1);
-	//if (all-good)
-	//pad = pad_dbls_front(info, src->len);
-	//if (ft_vecncat(dest, pad, ft_strlen(pad)) < 0)
-	//{
-	//	ft_strdel(&pad);
-	//	ft_vecdel(src);
-	//	return (-1);
-	//}
-	//ft_strdel(&pad);
+	if (ft_vecnew(&temp, 1, sizeof(char)) < 0)
+	{
+		ft_vecdel(src);
+		return (-1);
+	}
+	src = pad_dbls_front(src, &temp, src->len, info);
+	if (!src)
+		return (-1);
 	if (ft_vecappend(dest, src) < 0)
 	{
 		ft_vecdel(src);
 		return (-1);
 	}
 	ft_vecdel(src);
+	//pad();
 	return (1);
 }
 
