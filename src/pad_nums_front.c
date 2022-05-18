@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 15:40:33 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/16 22:07:15 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/18 14:59:13 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ static char	*format_width(t_stat *info, char *pad, size_t len)
 	char	*temp;
 	char	*res;
 
-	if (info->width > len && info->width > (info->preci + (info->sign < 0)))
+	if (!info->dash && info->width > len
+		&& info->width > (info->preci + (info->sign < 0)))
 	{
 		if (info->preci)
 			len = info->width - info->preci - (info->sign < 0);
@@ -69,19 +70,10 @@ static char	*format_preci(t_stat *info, size_t len)
 	return (sign);
 }
 
-/*
-static char	*format_prefix(t_stat *info, size_t len)
-{
-	return ();
-}
-*/
-
 char	*pad_nums_front(t_stat *info, size_t len)
 {
 	char	*pad;
 
-	pad = NULL;
-	//format_prefix();
 	pad = format_preci(info, len);
 	pad = format_width(info, pad, len);
 	return (pad);
