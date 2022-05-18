@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 23:27:56 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/10 00:03:21 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/18 11:35:27 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ long double	round_dbl(long double val, unsigned int preci)
 	else if (mdl >= 5)
 	{
 		dec = (dec / 10) + 1 - 0.1;
-		if ((unsigned int ) ft_intlen(dec) > preci + 1)
+		if ((unsigned int ) ft_anylen(dec, 10, 1) > preci + 1)
 			return ((long double )((int )(val + 0.5)));
 	}
 	else
