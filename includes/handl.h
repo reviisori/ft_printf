@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 10:28:17 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/17 21:44:19 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/18 11:10:06 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # define HANDL_H
 
 # include <stdbool.h>
+# include "vec.h"
 
 typedef enum e_len
 {
@@ -62,6 +63,7 @@ static const t_handler	g_handler[6] = {
 };
 
 char	*pad_nums_front(t_stat *info, size_t len);
+t_vec	*pad_dbls_front(t_vec *src, t_vec *temp, size_t src_len, t_stat *info);
 char	*set_prefix(t_stat *info, char *str);
 
 #endif
