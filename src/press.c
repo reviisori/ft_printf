@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 14:21:41 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/18 15:07:35 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/19 13:34:49 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	press(t_vec *dest, const char *format, t_stat info)
 				return (-1);
 			reset_stats(&info);
 			//[--$--]
-			//inves_flags(&p, &info);
+			inves_flags(&p, &info);
 			inves_width(&p, &info);
 			inves_preci(&p, &info);
 			inves_lenght(&p, &info);
