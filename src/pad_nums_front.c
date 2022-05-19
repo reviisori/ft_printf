@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 15:40:33 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/18 14:59:13 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/19 13:49:44 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static char	*format_width(t_stat *info, char *pad, size_t len)
 		else
 			len = info->width - len - (info->sign < 0);
 		temp = ft_strnew(len);
-		ft_memset(temp, ' ', len);
+		ft_memset(temp, info->pad, len);
 		res = ft_strjoin(temp, pad);
 		ft_strdel(&temp);
 		ft_strdel(&pad);
