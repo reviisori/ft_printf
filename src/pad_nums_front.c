@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 15:40:33 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/20 14:46:33 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/20 15:13:30 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,23 +84,24 @@ static char	*format_preci(t_stat *info, size_t len)
 
 char	*pad_nums_front(t_stat *info, size_t len)
 {
-	char	*pad;
 	char	*prefix;
-	char	*temp;
+	char	*pad;
+	char	*bin;
 
 	prefix = set_prefix(info, NULL);
-	if (prefix && info->hash)
+	if (info->hash)
 		len += ft_strlen(prefix);
 	pad = format_preci(info, len);
 	pad = format_width(info, pad, len);
 	if (info->width > (info->preci || len) && (info->hash || info->zero))
 	{
-		temp = pad;
+		bin = pad;
 		if (info->hash && info->zero)
 			pad = ft_strjoin(prefix, pad);
 		if (info->hash && !info->zero)
 			pad = ft_strjoin(pad, prefix);
-		//ft_strdel(&temp);
+		if (info->hash)
+			ft_strdel(&bin);
 	}
 	ft_strdel(&prefix);
 	return (pad);
