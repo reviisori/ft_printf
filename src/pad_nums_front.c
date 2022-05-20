@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 15:40:33 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/20 15:13:30 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/20 15:30:46 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ static char	*format_width(t_stat *info, char *pad, size_t len)
 	char	*temp;
 	char	*res;
 
-	if (!info->dash && info->width > len && info->width > (info->preci
-			+ (info->sign < 0 || info->plus || info->space)))
+	if (!info->dash && info->width > len
+		&& info->width > (info->preci + is_sign_added(info)))
 	{
 		if (info->preci)
 			len = info->width - info->preci - is_sign_added(info);
