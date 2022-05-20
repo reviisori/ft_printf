@@ -6,26 +6,33 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 15:40:33 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/19 13:49:44 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/20 14:46:33 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 
+static inline int	is_sign_added(t_stat *info)
+{
+	return ((info->sign < 0 || info->plus || info->space));
+}
+
 static char	*format_width(t_stat *info, char *pad, size_t len)
 {
 	char	*temp;
 	char	*res;
 
-	if (!info->dash && info->width > len
-		&& info->width > (info->preci + (info->sign < 0)))
+	if (!info->dash && info->width > len && info->width > (info->preci
+			+ (info->sign < 0 || info->plus || info->space)))
 	{
 		if (info->preci)
-			len = info->width - info->preci - (info->sign < 0);
+			len = info->width - info->preci - is_sign_added(info);
 		else
-			len = info->width - len - (info->sign < 0);
+			len = info->width - len - is_sign_added(info);
 		temp = ft_strnew(len);
+		if (info->zero && !info->hash && info->width > info->preci)
+			info->pad = ' ';
 		ft_memset(temp, info->pad, len);
 		res = ft_strjoin(temp, pad);
 		ft_strdel(&temp);
@@ -39,12 +46,15 @@ static char	*format_sign(t_stat *info)
 {
 	char	*sign;
 
-	sign = NULL;
+	sign = ft_strnew(1);
 	if (info->sign == -1)
-	{
-		sign = ft_strnew(1);
 		*sign = '-';
-	}
+	if (info->space && info->sign != -1 && info->is_signed)
+		*sign = ' ';
+	if (info->plus && info->sign != -1 && info->is_signed)
+		*sign = '+';
+	if (*sign == '\0')
+		ft_strdel(&sign);
 	return (sign);
 }
 
@@ -55,6 +65,8 @@ static char	*format_preci(t_stat *info, size_t len)
 	char	*res;
 
 	sign = format_sign(info);
+	if (info->zero && info->width && !info->preci)
+		info->preci = info->width - is_sign_added(info);
 	if (info->preci > len)
 	{
 		len = info->preci - len;
@@ -73,8 +85,23 @@ static char	*format_preci(t_stat *info, size_t len)
 char	*pad_nums_front(t_stat *info, size_t len)
 {
 	char	*pad;
+	char	*prefix;
+	char	*temp;
 
+	prefix = set_prefix(info, NULL);
+	if (prefix && info->hash)
+		len += ft_strlen(prefix);
 	pad = format_preci(info, len);
 	pad = format_width(info, pad, len);
+	if (info->width > (info->preci || len) && (info->hash || info->zero))
+	{
+		temp = pad;
+		if (info->hash && info->zero)
+			pad = ft_strjoin(prefix, pad);
+		if (info->hash && !info->zero)
+			pad = ft_strjoin(pad, prefix);
+		//ft_strdel(&temp);
+	}
+	ft_strdel(&prefix);
 	return (pad);
 }
