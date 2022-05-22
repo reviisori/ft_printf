@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 13:17:17 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/09 13:58:12 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/22 09:38:43 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,10 @@ int	press_type(t_vec *dest, const char **fptr, t_stat *info)
 	i = get_index(info->type);
 	if (i < 0)
 	{
+		if (info->type == '%')
+			return (pad_char(dest, info, '%'));
 		//DELETE
-		ft_putendl("*ERROR*: conversion not supported");
+		ft_putendl("*ERROR*: format not supported");
 		return (-1);
 	}
 	disp = g_jump[i];
