@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 15:40:33 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/20 15:30:46 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/22 08:59:34 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static char	*format_width(t_stat *info, char *pad, size_t len)
 		else
 			len = info->width - len - is_sign_added(info);
 		temp = ft_strnew(len);
-		if (info->zero && !info->hash && info->width > info->preci)
+		if ((info->zero && !info->hash) || info->width > info->preci)
 			info->pad = ' ';
 		ft_memset(temp, info->pad, len);
 		res = ft_strjoin(temp, pad);
@@ -85,24 +85,24 @@ static char	*format_preci(t_stat *info, size_t len)
 char	*pad_nums_front(t_stat *info, size_t len)
 {
 	char	*prefix;
+	size_t	px_len;
 	char	*pad;
-	char	*bin;
+	int		ret;
 
 	prefix = set_prefix(info, NULL);
 	if (info->hash)
-		len += ft_strlen(prefix);
-	pad = format_preci(info, len);
-	pad = format_width(info, pad, len);
-	if (info->width > (info->preci || len) && (info->hash || info->zero))
 	{
-		bin = pad;
-		if (info->hash && info->zero)
-			pad = ft_strjoin(prefix, pad);
-		if (info->hash && !info->zero)
-			pad = ft_strjoin(pad, prefix);
-		if (info->hash)
-			ft_strdel(&bin);
+		px_len = ft_strlen(prefix);
+		if (info->preci_on && ((int )(info->width - info->preci >= px_len)))
+			info->width -= px_len;
+		else
+			len += px_len;
 	}
+	pad = format_preci(info, len);
+	ret = format_prefix(info, &pad, &prefix, len);
+	pad = format_width(info, pad, len);
+	if (ret != 1)
+		ret = format_prefix(info, &pad, &prefix, len);
 	ft_strdel(&prefix);
 	return (pad);
 }
