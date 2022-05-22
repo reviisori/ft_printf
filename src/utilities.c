@@ -6,33 +6,11 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 14:30:47 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/20 12:29:47 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/22 08:56:53 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-char	*set_prefix(t_stat *info, char *str)
-{
-	char	*res;
-
-	if (info->type == 'p' || ft_tolower(info->type) == 'x')
-	{
-		if (info->type == 'X')
-			res = ft_strjoin("0X", str);
-		else
-			res = ft_strjoin("0x", str);
-		ft_strdel(&str);
-		return (res);
-	}
-	if (info->type == 'o')
-	{
-		res = ft_strjoin("0", str);
-		ft_strdel(&str);
-		return (res);
-	}
-	return (str);
-}
 
 int	set_base(const char c)
 {
