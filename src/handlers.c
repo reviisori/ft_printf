@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 13:33:47 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/20 14:55:39 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/23 14:26:03 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,10 @@ char	*handle_char(t_stat *info)
 	char	*str;
 
 	info->val = va_arg(info->ap, int);
-	info->sign = 1 - (2 * ((char ) info->val < 0));
+	if (info->type == 'd' || info->type == 'i')
+		info->sign = 1 - (2 * ((char ) info->val < 0));
+	else
+		info->sign = 1;
 	if (info->is_signed)
 		info->val *= info->sign;
 	str = ft_anytoa((unsigned char ) info->val,
@@ -50,7 +53,10 @@ char	*handle_short(t_stat *info)
 	char	*str;
 
 	info->val = va_arg(info->ap, int);
-	info->sign = 1 - (2 * ((short ) info->val < 0));
+	if (info->type == 'd' || info->type == 'i')
+		info->sign = 1 - (2 * ((short ) info->val < 0));
+	else
+		info->sign = 1;
 	if (info->is_signed)
 		info->val *= info->sign;
 	str = ft_anytoa((unsigned short ) info->val,
