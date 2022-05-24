@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 13:33:47 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/23 14:26:03 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/23 21:32:58 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@ static char	*pad_num(t_stat *info, char *str)
 	char	*pad;
 	char	*res;
 
-	if (info->type == 'p'
-		|| (info->val && info->hash && !info->width && !info->preci_on))
-		str = set_prefix(info, str);
 	if (!info->val && info->preci_on && !(info->hash && info->type == 'o'))
 		*str = '\0';
 	pad = pad_nums_front(info, ft_strlen(str));
