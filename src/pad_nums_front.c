@@ -6,14 +6,12 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 15:40:33 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/24 09:38:33 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/24 18:17:48 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
-
-#include <stdio.h>
 
 static inline int	is_sign_added(t_stat *info)
 {
@@ -88,9 +86,9 @@ static char	*format_prefix(t_stat *info, char *pad)
 {
 	char	*res;
 
-	if(info->hash)
+	if (info->hash)
 	{
-		if (info->type == 'p' || ft_tolower(info->type) == 'x')
+		if (info->type == 'p' || (ft_tolower(info->type) == 'x' && info->val))
 		{
 			if (info->type == 'X')
 				res = ft_strjoin("0X", pad);
@@ -99,7 +97,7 @@ static char	*format_prefix(t_stat *info, char *pad)
 			ft_strdel(&pad);
 			return (res);
 		}
-		if (info->type == 'o')
+		if (info->type == 'o' && info->val)
 		{
 			res = ft_strjoin("0", pad);
 			ft_strdel(&pad);
@@ -111,17 +109,16 @@ static char	*format_prefix(t_stat *info, char *pad)
 
 char	*pad_nums_front(t_stat *info, size_t len)
 {
-	char	*prefix;
 	size_t	px_len;
 	char	*pad;
 
-	prefix = format_prefix(info, NULL);
 	if (info->hash)
 	{
-		px_len = ft_strlen(prefix);
+		px_len = 2 - 1 * (info->type == 'o');
 		if (info->preci_on && (info->width >= px_len + info->preci))
 			info->width -= px_len;
-		else if (info->preci)
+		else if (info->preci
+			&& (info->type == 'x' || info->type == 'X' || info->type == 'p'))
 			px_len = 0;
 		else
 			len += px_len;
@@ -129,6 +126,5 @@ char	*pad_nums_front(t_stat *info, size_t len)
 	pad = format_preci(info, len);
 	pad = format_prefix(info, pad);
 	pad = format_width(info, pad, len);
-	ft_strdel(&prefix);
 	return (pad);
 }
