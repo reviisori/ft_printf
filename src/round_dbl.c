@@ -6,12 +6,21 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 23:27:56 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/18 11:35:27 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/24 18:15:50 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
+
+/*	while (i++ < preci)
+	{
+		temp = val;
+		val -= temp;
+		val *= 10;
+	}
+	val -= temp;
+*/
 
 long double	round_dbl(long double val, unsigned int preci)
 {
