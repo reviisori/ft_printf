@@ -6,23 +6,51 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 23:27:56 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/24 18:15:50 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/25 13:53:50 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 
-/*	while (i++ < preci)
-	{
-		temp = val;
-		val -= temp;
-		val *= 10;
-	}
-	val -= temp;
-*/
+static long double	ft_powl(long double x, long double y)
+{
+	long double		n;
+
+	n = 1;
+	while (y-- > 0)
+		n *= x;
+	return (n);
+}
 
 long double	round_dbl(long double val, unsigned int preci)
+{
+	long double		temp;
+	long double		pow;
+	unsigned int	i;
+	unsigned long	whl;
+
+	pow = ft_powl(0.1, preci);
+	temp = val;
+	i = 0;
+	while (i++ < preci)
+	{
+		whl = temp;
+		temp -= whl;
+		temp *= 10;
+	}
+	temp -= whl;
+	if (temp == 0.5)
+	{
+		if (whl % 2 != 0)
+			val = val + pow - (pow / 10);
+	}
+	else if (temp > 0.5)
+		val = val + pow - (pow * 0.1);
+	return (val);
+}
+
+long double	round_dbl_v2_old(long double val, unsigned int preci)
 {
 	long double		pow;
 	long double		dec;
