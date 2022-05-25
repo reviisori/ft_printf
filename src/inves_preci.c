@@ -6,14 +6,14 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:38:17 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/25 22:23:26 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/25 23:30:56 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 
-int	inves_preci_asterisk(const char **fptr, t_stat *info)
+static int	inves_preci_asterisk(const char **fptr, t_stat *info)
 {
 	int	preci;
 
