@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 23:27:56 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/25 22:50:30 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/26 00:01:51 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ long double	round_dbl(long double val, unsigned int preci)
 	if (temp == 0.5)
 	{
 		if (whl % 2 != 0)
-			val = val + pow - (pow / 10);
+			val = val + pow - (pow * 0.1);
 	}
 	else if (temp > 0.5)
 		val = val + pow - (pow * 0.1);
