@@ -6,7 +6,7 @@
 	#    By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+         #
 	#                                                 +#+#+#+#+#+   +#+            #
 	#    Created: 2022/04/28 13:24:47 by altikka           #+#    #+#              #
-#    Updated: 2022/05/26 14:48:22 by altikka          ###   ########.fr        #
+#    Updated: 2022/05/26 16:20:20 by altikka          ###   ########.fr        #
 	#                                                                              #
 	# **************************************************************************** #
 
@@ -38,7 +38,7 @@ OBJ_DIR = obj/
 OBJ_LIBFT = libft/*.o
 OBJS = $(SRCS:$(SRC_DIR)%.c=$(OBJ_DIR)%.o) $(OBJ_LIBFT)
 
-FLGS = -Wall -Wextra -Werror -g
+FLGS = -Wall -Wextra -Werror
 
 NCOLOR = \033[0m
 LGRAY = \033[1;30m
