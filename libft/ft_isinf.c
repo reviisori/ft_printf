@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 22:10:16 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/26 22:10:34 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/26 22:35:21 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@ int	ft_isinf(double x)
 	int	n;
 
 	n = *((int *) &x + 1);
-	if (n == 0x7ff00000)
+	if ((unsigned int ) n == 0x7ff00000)
 		return (1);
-	if (n == 0xfff00000)
+	if ((unsigned int ) n == 0xfff00000)
 		return (-1);
 	return (0);
 }
