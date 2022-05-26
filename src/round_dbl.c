@@ -6,22 +6,12 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 23:27:56 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/26 00:01:51 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/26 22:17:23 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
-
-static long double	ft_powl(long double x, long double y)
-{
-	long double		n;
-
-	n = 1;
-	while (y-- > 0)
-		n *= x;
-	return (n);
-}
 
 long double	round_dbl(long double val, unsigned int preci)
 {
