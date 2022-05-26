@@ -6,7 +6,7 @@
 	#    By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+         #
 	#                                                 +#+#+#+#+#+   +#+            #
 	#    Created: 2022/04/28 13:24:47 by altikka           #+#    #+#              #
-#    Updated: 2022/05/26 16:20:20 by altikka          ###   ########.fr        #
+#    Updated: 2022/05/27 00:23:05 by altikka          ###   ########.fr        #
 	#                                                                              #
 	# **************************************************************************** #
 
@@ -32,6 +32,7 @@
 		   $(SRC_DIR)tc_str.c \
 		   $(SRC_DIR)pad_nums_front.c \
 		   $(SRC_DIR)pad_dbls_front.c \
+		   $(SRC_DIR)pad_inf.c \
 		   $(SRC_DIR)handlers.c
 
 OBJ_DIR = obj/
