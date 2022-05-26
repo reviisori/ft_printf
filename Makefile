@@ -6,7 +6,7 @@
 	#    By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+         #
 	#                                                 +#+#+#+#+#+   +#+            #
 	#    Created: 2022/04/28 13:24:47 by altikka           #+#    #+#              #
-#    Updated: 2022/05/24 09:33:32 by altikka          ###   ########.fr        #
+#    Updated: 2022/05/26 14:48:22 by altikka          ###   ########.fr        #
 	#                                                                              #
 	# **************************************************************************** #
 
@@ -16,7 +16,7 @@
 
 	SRC_DIR = src/
 	SRCS = $(SRC_DIR)ft_printf.c \
-		   $(SRC_DIR)print_shop.c \
+		   $(SRC_DIR)ft_vasprintf.c \
 		   $(SRC_DIR)utilities.c \
 		   $(SRC_DIR)press.c \
 		   $(SRC_DIR)press_type.c \
