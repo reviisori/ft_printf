@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 14:09:25 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/11 22:09:14 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/26 18:21:57 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	inves_lenght(const char **fptr, t_stat *info)
 {
 	if (**fptr == 'h')
 		return (hotel(fptr, info));
-	if (**fptr == 'l')
+	if (**fptr == 'l' || **fptr == 'j' || **fptr == 'z')
 		return (lima(fptr, info));
 	if (**fptr == 'L')
 	{
