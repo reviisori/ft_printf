@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 14:38:37 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/02 16:28:43 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/26 14:46:39 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ int	ft_printf(const char *format, ...)
 	int		len;
 
 	va_start(ap, format);
-	len = print_shop(&p, format, ap);
+	len = ft_vasprintf(&p, format, ap);
 	va_end(ap);
 	if (len < 0)
 	{
 		//REMOVE
-		ft_putendl("*ERROR*: print shop burned down");
+		ft_putendl("*ERROR*: ft_vasprintf returned -1");
 		return (len);
 	}
 	write(1, p, len);
