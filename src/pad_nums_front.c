@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 15:40:33 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/27 14:20:48 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/27 19:15:02 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static char	*format_preci(t_stat *info, size_t len)
 	char	*res;
 
 	sign = format_sign(info);
-	if (info->zero && info->width && !info->preci)
+	if (info->zero && info->width && !info->preci && !info->preci_on)
 		info->preci = info->width - is_sign_added(info);
 	if (info->preci > len)
 	{
@@ -117,7 +117,8 @@ char	*pad_nums_front(t_stat *info, size_t len)
 	if (info->hash)
 	{
 		px_len = 2 - 1 * (info->type == 'o');
-		if (info->preci_on && (info->width >= px_len + info->preci))
+		if (!info->dash && info->preci_on
+			&& (info->width >= px_len + info->preci))
 			info->width -= px_len;
 		else if (info->preci
 			&& (info->type == 'x' || info->type == 'X' || info->type == 'p'))
