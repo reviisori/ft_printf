@@ -6,7 +6,7 @@
 #    By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/08 13:27:42 by altikka           #+#    #+#              #
-#    Updated: 2022/05/26 22:20:28 by altikka          ###   ########.fr        #
+#    Updated: 2022/05/27 13:25:12 by altikka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ SRCS = ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c ft_strlen.c \
 
 OBJS = $(SRCS:.c=.o)
 
-FLGS = -Wall -Wextra -Werror
+FLGS = -Wall -Wextra -Werror -O3
 
 RED = \033[0;31m
 LGRAY = \033[1;30m
