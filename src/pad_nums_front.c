@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 15:40:33 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/24 18:17:48 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/27 14:20:48 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,8 @@ char	*pad_nums_front(t_stat *info, size_t len)
 	size_t	px_len;
 	char	*pad;
 
+	if (!info->val && info->type != 'p')
+		info->hash = false;
 	if (info->hash)
 	{
 		px_len = 2 - 1 * (info->type == 'o');
