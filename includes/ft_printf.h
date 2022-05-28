@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 14:08:42 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/27 00:22:25 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/28 10:33:35 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ void		init_stats(t_stat *info, va_list ap);
 void		reset_stats(t_stat *info);
 int			set_base(const char c);
 int			pad(t_vec *dest, int len, char c, int flag);
-int			pad_inf(t_vec *dest, int inf, t_stat *info);
 int			pad_char(t_vec *dest, t_stat *info, char c);
+int			pad_inf(t_vec *dest, t_stat *info, int inf);
+int			pad_str(t_vec *dest, t_stat *info, char *str, size_t len);
 
 #endif
