@@ -6,14 +6,14 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 00:20:15 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/27 00:31:15 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/28 10:33:15 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 
-int	pad_inf(t_vec *dest, int inf, t_stat *info)
+int	pad_inf(t_vec *dest, t_stat *info, int inf)
 {
 	char	*temp;
 	char	*res;
