@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:10:57 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/28 10:47:23 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/30 18:15:49 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 static int	add_point(t_vec *src, char *dec, size_t dec_len, t_stat *info)
 {
-	if (info->preci != 0)
+	if (info->preci || (info->preci_on && info->hash))
 	{
 		if (ft_vecpush(src, ".") < 0)
 		{
@@ -24,7 +24,7 @@ static int	add_point(t_vec *src, char *dec, size_t dec_len, t_stat *info)
 			ft_vecdel(src);
 			return (-1);
 		}
-		if (pad(src, (info->preci - dec_len), '0', 1) < 0)
+		if (info->preci && pad(src, (info->preci - dec_len), '0', 1) < 0)
 		{
 			ft_strdel(&dec);
 			ft_vecdel(src);
