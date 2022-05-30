@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 15:40:33 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/30 11:48:47 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/30 16:59:40 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ char	*pad_nums_front(t_stat *info, size_t len)
 		else
 			len += px_len;
 	}
-	isd = (info->sign < 0 || info->plus || info->space);
+	isd = info->is_signed * (info->sign < 0 || info->plus || info->space);
 	pad = format_preci(info, len, isd);
 	pad = format_prefix(info, pad);
 	pad = format_width(info, pad, len, isd);
