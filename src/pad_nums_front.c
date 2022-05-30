@@ -6,30 +6,25 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 15:40:33 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/27 19:15:02 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/30 11:48:47 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 
-static inline int	is_sign_added(t_stat *info)
-{
-	return ((info->sign < 0 || info->plus || info->space));
-}
-
-static char	*format_width(t_stat *info, char *pad, size_t len)
+static char	*format_width(t_stat *info, char *pad, size_t len, int is_signed)
 {
 	char	*temp;
 	char	*res;
 
 	if (!info->dash && info->width > len
-		&& info->width > (info->preci + is_sign_added(info)))
+		&& info->width > (info->preci + is_signed))
 	{
 		if (info->preci)
-			len = info->width - info->preci - is_sign_added(info);
+			len = info->width - info->preci - is_signed;
 		else
-			len = info->width - len - is_sign_added(info);
+			len = info->width - len - is_signed;
 		temp = ft_strnew(len);
 		if ((info->zero && !info->hash) || info->width > info->preci)
 			info->pad = ' ';
@@ -58,30 +53,6 @@ static char	*format_sign(t_stat *info)
 	return (sign);
 }
 
-static char	*format_preci(t_stat *info, size_t len)
-{
-	char	*sign;
-	char	*temp;
-	char	*res;
-
-	sign = format_sign(info);
-	if (info->zero && info->width && !info->preci && !info->preci_on)
-		info->preci = info->width - is_sign_added(info);
-	if (info->preci > len)
-	{
-		len = info->preci - len;
-		temp = ft_strnew(len);
-		ft_memset(temp, '0', len);
-		res = ft_strjoin(sign, temp);
-		ft_strdel(&temp);
-		ft_strdel(&sign);
-		return (res);
-	}
-	else
-		info->preci = 0;
-	return (sign);
-}
-
 static char	*format_prefix(t_stat *info, char *pad)
 {
 	char	*res;
@@ -107,10 +78,35 @@ static char	*format_prefix(t_stat *info, char *pad)
 	return (pad);
 }
 
+static char	*format_preci(t_stat *info, size_t len, int is_signed)
+{
+	char	*sign;
+	char	*temp;
+	char	*res;
+
+	sign = format_sign(info);
+	if (info->zero && info->width && !info->preci && !info->preci_on)
+		info->preci = info->width - is_signed;
+	if (info->preci > len)
+	{
+		len = info->preci - len;
+		temp = ft_strnew(len);
+		ft_memset(temp, '0', len);
+		res = ft_strjoin(sign, temp);
+		ft_strdel(&temp);
+		ft_strdel(&sign);
+		return (res);
+	}
+	else
+		info->preci = 0;
+	return (sign);
+}
+
 char	*pad_nums_front(t_stat *info, size_t len)
 {
 	size_t	px_len;
 	char	*pad;
+	int		isd;
 
 	if (!info->val && info->type != 'p')
 		info->hash = false;
@@ -126,8 +122,9 @@ char	*pad_nums_front(t_stat *info, size_t len)
 		else
 			len += px_len;
 	}
-	pad = format_preci(info, len);
+	isd = (info->sign < 0 || info->plus || info->space);
+	pad = format_preci(info, len, isd);
 	pad = format_prefix(info, pad);
-	pad = format_width(info, pad, len);
+	pad = format_width(info, pad, len, isd);
 	return (pad);
 }
