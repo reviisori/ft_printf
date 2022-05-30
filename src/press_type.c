@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 13:17:17 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/22 09:38:43 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/30 12:05:21 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	press_type(t_vec *dest, const char **fptr, t_stat *info)
 	{
 		if (info->type == '%')
 			return (pad_char(dest, info, '%'));
-		//DELETE
 		ft_putendl("*ERROR*: format not supported");
 		return (-1);
 	}

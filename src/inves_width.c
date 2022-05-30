@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 13:53:49 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/26 15:56:17 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/30 11:59:44 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ int	inves_width(const char **fptr, t_stat *info)
 	width = inves_width_asterisk(fptr, info);
 	if (width < 0)
 		width *= -1;
-	//quick & dirty strikes again
 	if (info->zero && info->dash)
 	{
 		info->zero = false;

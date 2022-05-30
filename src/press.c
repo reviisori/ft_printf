@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 14:21:41 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/19 13:34:49 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/30 12:03:57 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	press(t_vec *dest, const char *format, t_stat info)
 			if (ft_vecncat(dest, format, ((p - 1) - format)) < 0)
 				return (-1);
 			reset_stats(&info);
-			//[--$--]
 			inves_flags(&p, &info);
 			inves_width(&p, &info);
 			inves_preci(&p, &info);

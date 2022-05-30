@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 09:48:11 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/20 12:53:35 by altikka          ###   ########.fr       */
+/*   Updated: 2022/05/30 12:05:22 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int	inves_flags(const char **fptr, t_stat *info)
 			info->plus = true;
 		(*fptr)++;
 	}
-	//quick & dirty
 	if (info->zero && info->dash)
 	{
 		info->zero = false;
