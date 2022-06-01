@@ -6,7 +6,7 @@
 	#    By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+         #
 	#                                                 +#+#+#+#+#+   +#+            #
 	#    Created: 2022/04/28 13:24:47 by altikka           #+#    #+#              #
-#    Updated: 2022/05/27 13:24:59 by altikka          ###   ########.fr        #
+#    Updated: 2022/06/01 16:20:25 by altikka          ###   ########.fr        #
 	#                                                                              #
 	# **************************************************************************** #
 
@@ -27,6 +27,7 @@
 		   $(SRC_DIR)tc_char.c \
 		   $(SRC_DIR)tc_dbl.c \
 		   $(SRC_DIR)round_dbl.c \
+		   $(SRC_DIR)tc_len.c \
 		   $(SRC_DIR)tc_num.c \
 		   $(SRC_DIR)tc_ptr.c \
 		   $(SRC_DIR)tc_str.c \
