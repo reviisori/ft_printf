@@ -6,7 +6,7 @@
 #    By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/08 13:27:42 by altikka           #+#    #+#              #
-#    Updated: 2022/05/31 16:26:10 by altikka          ###   ########.fr        #
+#    Updated: 2022/06/01 22:04:07 by altikka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,12 +34,9 @@ OBJS = $(SRCS:.c=.o)
 
 FLGS = -Wall -Wextra -Werror -O3
 
-RED = \033[0;31m
-LGRAY = \033[1;30m
-LGREEN = \033[1;32m
-WHITE = \033[1;37m
-GREEN = \033[0;32m
-YELLOW = \033[0;33m
+LGRAY = \033[38;5;243m
+GREEN = \033[38;5;70m
+YELLOW = \033[38;5;220m
 
 all: $(NAME)
 
