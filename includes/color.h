@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 16:21:27 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/31 20:21:54 by altikka          ###   ########.fr       */
+/*   Updated: 2022/06/01 14:26:27 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define YELLOW "\033[38;5;220m"
 # define PURPLE "\033[38;5;134m"
 # define SALMON "\033[38;5;203m"
-# define BLACK "\033[38;5;235m"
+# define BLACK "\033[38;5;236m"
 # define GRAY "\033[38;5;240m"
 # define WHITE "\033[38;5;231m"
 
