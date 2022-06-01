@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 15:40:33 by altikka           #+#    #+#             */
-/*   Updated: 2022/06/01 18:09:29 by altikka          ###   ########.fr       */
+/*   Updated: 2022/06/01 21:16:32 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,6 @@ static char	*format_width(t_stat *info, char *pad, size_t len, int is_signed)
 	return (pad);
 }
 
-static char	*format_sign(t_stat *info)
-{
-	char	*sign;
-
-	sign = ft_strnew(1);
-	if (info->sign == -1)
-		*sign = '-';
-	if (info->space && info->sign != -1 && info->is_signed)
-		*sign = ' ';
-	if (info->plus && info->sign != -1 && info->is_signed)
-		*sign = '+';
-	if (*sign == '\0')
-		ft_strdel(&sign);
-	return (sign);
-}
-
 static char	*format_prefix(t_stat *info, char *pad)
 {
 	char	*res;
@@ -79,6 +63,22 @@ static char	*format_prefix(t_stat *info, char *pad)
 		}
 	}
 	return (pad);
+}
+
+static char	*format_sign(t_stat *info)
+{
+	char	*sign;
+
+	sign = ft_strnew(1);
+	if (info->sign == -1)
+		*sign = '-';
+	if (info->space && info->sign != -1 && info->is_signed)
+		*sign = ' ';
+	if (info->plus && info->sign != -1 && info->is_signed)
+		*sign = '+';
+	if (*sign == '\0')
+		ft_strdel(&sign);
+	return (sign);
 }
 
 static char	*format_preci(t_stat *info, size_t len, int is_signed)
