@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 14:08:42 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/31 16:32:07 by altikka          ###   ########.fr       */
+/*   Updated: 2022/06/01 16:19:54 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,24 @@
 # include "color.h"
 # include "handl.h"
 
-# define TYPES "cdfiopsux"
+# define TYPES "cdfinopsux"
 # define FLAGS "#0- +"
 
 int			tc_char(t_vec *dest, t_stat *info);
 int			tc_dbl(t_vec *dest, t_stat *info);
+int			tc_len(t_vec *dest, t_stat *info);
 int			tc_num(t_vec *dest, t_stat *info);
 int			tc_ptr(t_vec *dest, t_stat *info);
 int			tc_str(t_vec *dest, t_stat *info);
 
 typedef int			(*t_jump)(t_vec *, t_stat *);
 
-static const t_jump	g_jump[9] = {
+static const t_jump	g_jump[10] = {
 	tc_char,
 	tc_num,
 	tc_dbl,
 	tc_num,
+	tc_len,
 	tc_num,
 	tc_ptr,
 	tc_str,
