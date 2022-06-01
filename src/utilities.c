@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 14:30:47 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/22 08:56:53 by altikka          ###   ########.fr       */
+/*   Updated: 2022/06/01 18:03:32 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	set_base(const char c)
 		return (16);
 	else if (c == 'o')
 		return (8);
+	else if (c == 'b')
+		return (2);
 	else
 		return (10);
 }
