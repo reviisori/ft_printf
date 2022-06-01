@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 15:40:33 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/31 15:39:39 by altikka          ###   ########.fr       */
+/*   Updated: 2022/06/01 18:09:29 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,13 @@ static char	*format_prefix(t_stat *info, char *pad)
 
 	if (info->hash)
 	{
-		if (info->type == 'p' || (ft_tolower(info->type) == 'x' && info->val))
+		if (info->type == 'p' || (ft_tolower(info->type) == 'x' && info->val)
+			|| (info->type == 'b' && info->val))
 		{
 			if (info->type == 'X')
 				res = ft_strjoin("0X", pad);
+			else if (info->type == 'b')
+				res = ft_strjoin("0b", pad);
 			else
 				res = ft_strjoin("0x", pad);
 			ft_strdel(&pad);
