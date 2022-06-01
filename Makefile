@@ -1,40 +1,40 @@
-	# **************************************************************************** #
-	#                                                                              #
-	#                                                         :::      ::::::::    #
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
-	#                                                     +:+ +:+         +:+      #
-	#    By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+         #
-	#                                                 +#+#+#+#+#+   +#+            #
-	#    Created: 2022/04/28 13:24:47 by altikka           #+#    #+#              #
-#    Updated: 2022/06/01 16:20:25 by altikka          ###   ########.fr        #
-	#                                                                              #
-	# **************************************************************************** #
+#                                                     +:+ +:+         +:+      #
+#    By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/06/01 21:54:04 by altikka           #+#    #+#              #
+#    Updated: 2022/06/01 22:09:55 by altikka          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-	NAME = libftprintf.a
+NAME = libftprintf.a
 
-	INCS = -I libft/ -I includes/
+INCS = -I libft/ -I includes/
 
-	SRC_DIR = src/
-	SRCS = $(SRC_DIR)ft_printf.c \
-		   $(SRC_DIR)ft_vasprintf.c \
-		   $(SRC_DIR)utilities.c \
-		   $(SRC_DIR)press.c \
-		   $(SRC_DIR)press_type.c \
-		   $(SRC_DIR)inves_flags.c \
-		   $(SRC_DIR)inves_width.c \
-		   $(SRC_DIR)inves_preci.c \
-		   $(SRC_DIR)inves_lenght.c \
-		   $(SRC_DIR)tc_char.c \
-		   $(SRC_DIR)tc_dbl.c \
-		   $(SRC_DIR)round_dbl.c \
-		   $(SRC_DIR)tc_len.c \
-		   $(SRC_DIR)tc_num.c \
-		   $(SRC_DIR)tc_ptr.c \
-		   $(SRC_DIR)tc_str.c \
-		   $(SRC_DIR)pad_nums_front.c \
-		   $(SRC_DIR)pad_dbls_front.c \
-		   $(SRC_DIR)pad_inf.c \
-		   $(SRC_DIR)handlers.c
+SRC_DIR = src/
+SRCS = $(SRC_DIR)ft_printf.c \
+	   $(SRC_DIR)ft_vasprintf.c \
+	   $(SRC_DIR)utilities.c \
+	   $(SRC_DIR)press.c \
+	   $(SRC_DIR)press_type.c \
+	   $(SRC_DIR)inves_flags.c \
+	   $(SRC_DIR)inves_width.c \
+	   $(SRC_DIR)inves_preci.c \
+	   $(SRC_DIR)inves_lenght.c \
+	   $(SRC_DIR)tc_char.c \
+	   $(SRC_DIR)tc_dbl.c \
+	   $(SRC_DIR)round_dbl.c \
+	   $(SRC_DIR)tc_len.c \
+	   $(SRC_DIR)tc_num.c \
+	   $(SRC_DIR)tc_ptr.c \
+	   $(SRC_DIR)tc_str.c \
+	   $(SRC_DIR)pad_nums_front.c \
+	   $(SRC_DIR)pad_dbls_front.c \
+	   $(SRC_DIR)pad_inf.c \
+	   $(SRC_DIR)handlers.c
 
 OBJ_DIR = obj/
 OBJ_LIBFT = libft/*.o
@@ -42,26 +42,26 @@ OBJS = $(SRCS:$(SRC_DIR)%.c=$(OBJ_DIR)%.o) $(OBJ_LIBFT)
 
 FLGS = -Wall -Wextra -Werror -O3
 
-NCOLOR = \033[0m
-LGRAY = \033[1;30m
-RED = \033[0;31m
-PURP = \033[0;35m
+EOC = \033[0m
+LGRAY = \033[38;5;244m
+RED = \033[38;5;124m
+PURP = \033[38;5;134m
 GOLD = \033[38;5;136m
 
 all: $(NAME)
 
 $(NAME):
-	@echo "$(NCOLOR)"
-	@echo "____________________________________________________________"
-	@echo "____________________________________________________________"
-	@echo "             .-..                       .  .-.              "
-	@echo "             | _|_              o      _|_ |                "
-	@echo "            -|- |      .,-. .--..  .--. | -|-               "
-	@echo "             |  |      |   )|  /|  |  | |  |                "
-	@echo "             |   -'____| -' '    --'   - -'|                "
-	@echo "_____________'_________|___________________'________________"
-	@echo "                       '$(GOLD)   by altikka                "
-	@echo "$(NCOLOR)"
+	@echo "$(EOC)"
+	@echo "___________________________________________________________"
+	@echo "___________________________________________________________"
+	@echo "             .-..                       .  .-.             "
+	@echo "             | _|_              o      _|_ |               "
+	@echo "            -|- |      .,-. .--..  .--. | -|-              "
+	@echo "             |  |      |   )|  /|  |  | |  |               "
+	@echo "             |   -'____| -' '    --'   - -'|               "
+	@echo "_____________'_________|___________________'_______________"
+	@echo "                       '$(GOLD)   by altikka               "
+	@echo "$(EOC)"
 	@make -C ./libft
 	@mkdir $(OBJ_DIR)
 	@echo "$(LGRAY)[ft_printf] $(PURP)Making object files..."
