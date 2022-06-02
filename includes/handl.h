@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 10:28:17 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/24 09:33:48 by altikka          ###   ########.fr       */
+/*   Updated: 2022/06/02 23:47:37 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # define HANDL_H
 
 # include <stdbool.h>
-# include "vec.h"
+# include "libft.h"
 
 typedef enum e_len
 {
