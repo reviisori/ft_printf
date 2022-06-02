@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 13:17:17 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/30 12:05:21 by altikka          ###   ########.fr       */
+/*   Updated: 2022/06/02 19:51:01 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	get_index(const char c)
 	char	*p;
 
 	p = ft_strcasechr(TYPES, c);
-	if (!p)
+	if (p == NULL || *p == '\0')
 		return (-1);
 	return (p - TYPES);
 }
@@ -36,7 +36,7 @@ int	press_type(t_vec *dest, const char **fptr, t_stat *info)
 	{
 		if (info->type == '%')
 			return (pad_char(dest, info, '%'));
-		ft_putendl("*ERROR*: format not supported");
+		ft_putendl("*ERROR*: formatting not supported");
 		return (-1);
 	}
 	disp = g_jump[i];
