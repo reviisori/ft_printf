@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:46:38 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/26 22:15:10 by altikka          ###   ########.fr       */
+/*   Updated: 2022/06/02 23:47:21 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdint.h>
 
 # include "get_next_line.h"
+# include "vec.h"
 
 typedef struct s_list
 {
