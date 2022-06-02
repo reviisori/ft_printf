@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 14:38:37 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/30 11:57:19 by altikka          ###   ########.fr       */
+/*   Updated: 2022/06/02 19:52:55 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ int	ft_printf(const char *format, ...)
 	len = ft_vasprintf(&p, format, ap);
 	va_end(ap);
 	if (len < 0)
-	{
-		ft_putendl("*ERROR*: ft_vasprintf returned -1");
-		return (len);
-	}
+		return (-1);
 	write(1, p, len);
 	free(p);
 	return (len);
