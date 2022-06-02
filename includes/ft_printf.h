@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 14:08:42 by altikka           #+#    #+#             */
-/*   Updated: 2022/06/01 21:21:46 by altikka          ###   ########.fr       */
+/*   Updated: 2022/06/02 23:55:13 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 # include <unistd.h>
 # include <stdarg.h>
+# include "handle.h"
 # include "color.h"
-# include "handl.h"
 
 # define TYPES "bcdfinopsux"
 # define FLAGS "#0- +"

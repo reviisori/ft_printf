@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handl.h                                            :+:      :+:    :+:   */
+/*   handle.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 10:28:17 by altikka           #+#    #+#             */
-/*   Updated: 2022/06/02 23:47:37 by altikka          ###   ########.fr       */
+/*   Updated: 2022/06/02 23:55:55 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HANDL_H
+#ifndef HANDLE_H
 
-# define HANDL_H
+# define HANDLE_H
 
 # include <stdbool.h>
 # include "libft.h"
