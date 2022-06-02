@@ -6,7 +6,7 @@
 #    By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/01 21:54:04 by altikka           #+#    #+#              #
-#    Updated: 2022/06/02 13:53:29 by altikka          ###   ########.fr        #
+#    Updated: 2022/06/02 22:13:19 by altikka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,7 @@ $(NAME):
 	@echo "                       '$(GOLD)   by altikka             "
 	@echo "$(EOC)"
 	@make -C ./libft
-	@mkdir $(OBJ_DIR)
+	@mkdir -p $(OBJ_DIR)
 	@echo "$(LGRAY)[ft_printf] $(PURP)Making object files..."
 	@gcc -c $(FLGS) $(INCS) $(SRCS)
 	@mv *.o $(OBJ_DIR)
