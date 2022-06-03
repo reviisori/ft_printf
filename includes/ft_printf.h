@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 14:08:42 by altikka           #+#    #+#             */
-/*   Updated: 2022/06/02 23:55:13 by altikka          ###   ########.fr       */
+/*   Updated: 2022/06/03 12:21:21 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,6 @@ int			set_base(const char c);
 int			pad(t_vec *dest, int len, char c, int flag);
 int			pad_char(t_vec *dest, t_stat *info, char c);
 int			pad_str(t_vec *dest, t_stat *info, char *str, size_t len);
-int			pad_inf(t_vec *dest, t_stat *info, int inf);
+int			pad_inf(t_vec *dest, t_stat *info, int inf, int flag);
 
 #endif
