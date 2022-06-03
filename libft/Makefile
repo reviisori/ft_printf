@@ -6,7 +6,7 @@
 #    By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/08 13:27:42 by altikka           #+#    #+#              #
-#    Updated: 2022/06/01 22:04:07 by altikka          ###   ########.fr        #
+#    Updated: 2022/06/03 12:40:11 by altikka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ OBJS = $(SRCS:.c=.o)
 
 FLGS = -Wall -Wextra -Werror -O3
 
+EOC = \033[0m
 LGRAY = \033[38;5;243m
 GREEN = \033[38;5;70m
 YELLOW = \033[38;5;220m
@@ -41,18 +42,18 @@ YELLOW = \033[38;5;220m
 all: $(NAME)
 
 $(NAME):
-	@echo "$(LGRAY)[libft] $(GREEN)Making object files..."
+	@echo "$(LGRAY)[libft] $(GREEN)Making object files...$(EOC)"
 	@gcc -c $(FLGS) $(SRCS)
-	@echo "$(LGRAY)[libft] $(GREEN)Creating library..."
+	@echo "$(LGRAY)[libft] $(GREEN)Creating library...$(EOC)"
 	@ar rcs $(NAME) $(OBJS)
-	@echo "$(LGRAY)[libft] $(GREEN)Library created!"
+	@echo "$(LGRAY)[libft] $(GREEN)Library created!$(EOC)"
 
 clean:
-	@echo "$(LGRAY)[libft] $(YELLOW)Cleaning object files..."
+	@echo "$(LGRAY)[libft] $(YELLOW)Cleaning object files...$(EOC)"
 	@rm -f $(OBJS)
 
 fclean: clean
-	@echo "$(LGRAY)[libft] $(YELLOW)Removing library..."
+	@echo "$(LGRAY)[libft] $(YELLOW)Removing library...$(EOC)"
 	@rm -f $(NAME)
 
 re: fclean all

@@ -6,7 +6,7 @@
 #    By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/01 21:54:04 by altikka           #+#    #+#              #
-#    Updated: 2022/06/02 22:13:19 by altikka          ###   ########.fr        #
+#    Updated: 2022/06/03 12:40:12 by altikka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,21 +64,21 @@ $(NAME):
 	@echo "$(EOC)"
 	@make -C ./libft
 	@mkdir -p $(OBJ_DIR)
-	@echo "$(LGRAY)[ft_printf] $(PURP)Making object files..."
+	@echo "$(LGRAY)[ft_printf] $(PURP)Making object files...$(EOC)"
 	@gcc -c $(FLGS) $(INCS) $(SRCS)
 	@mv *.o $(OBJ_DIR)
-	@echo "$(LGRAY)[ft_printf] $(PURP)Creating library libftprintf.a"
+	@echo "$(LGRAY)[ft_printf] $(PURP)Creating library libftprintf.a$(EOC)"
 	@ar rcs $(NAME) $(OBJS)
-	@echo "$(LGRAY)[ft_printf] $(PURP)Library created!"
+	@echo "$(LGRAY)[ft_printf] $(PURP)Library created!$(EOC)"
 
 clean:
 	@make -C ./libft/ clean
-	@echo "$(LGRAY)[ft_printf] $(RED)Cleaning object files..."
+	@echo "$(LGRAY)[ft_printf] $(RED)Cleaning object files...$(EOC)"
 	@rm -rf $(OBJ_DIR)
 
 fclean: clean
 	@make -C ./libft/ fclean
-	@echo "$(LGRAY)[ft_printf] $(RED)Removing library..."
+	@echo "$(LGRAY)[ft_printf] $(RED)Removing library...$(EOC)"
 	@rm -f $(NAME)
 
 re: fclean all
