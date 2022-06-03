@@ -6,21 +6,21 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 00:20:15 by altikka           #+#    #+#             */
-/*   Updated: 2022/06/03 12:27:18 by altikka          ###   ########.fr       */
+/*   Updated: 2022/06/03 12:37:06 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 
-int	pad_inf(t_vec *dest, t_stat *info, int inf, int flag)
+int	pad_inf(t_vec *dest, t_stat *info, int inf)
 {
 	char	*temp;
 	char	*res;
 	size_t	len;
 
-	if (flag)
-		info->pad = ' ';
+	info->zero = false;
+	info->pad = ' ';
 	info->preci_on = false;
 	info->preci = 0;
 	info->sign = inf;
