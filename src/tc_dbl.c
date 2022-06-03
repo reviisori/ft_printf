@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:10:57 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/30 18:15:49 by altikka          ###   ########.fr       */
+/*   Updated: 2022/06/03 12:26:13 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,10 +122,14 @@ int	tc_dbl(t_vec *dest, t_stat *info)
 	else
 		val = va_arg(info->ap, double);
 	if (val != val)
+	{
+		if (info->zero)
+			info->pad = ' ';
 		return (pad_str(dest, info, "nan", 3));
+	}
 	inf = ft_isinf((double ) val);
 	if (inf != 0)
-		return (pad_inf(dest, info, inf));
+		return (pad_inf(dest, info, inf, (info->zero)));
 	info->sign = 1 - (2 * ((1 / val) < 0));
 	if (info->is_signed)
 		val *= info->sign;
