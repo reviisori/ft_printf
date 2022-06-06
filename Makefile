@@ -6,7 +6,7 @@
 #    By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/01 21:54:04 by altikka           #+#    #+#              #
-#    Updated: 2022/06/03 12:40:12 by altikka          ###   ########.fr        #
+#    Updated: 2022/06/06 22:42:31 by altikka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRCS = $(SRC_DIR)ft_printf.c \
 	   $(SRC_DIR)inves_flags.c \
 	   $(SRC_DIR)inves_width.c \
 	   $(SRC_DIR)inves_preci.c \
-	   $(SRC_DIR)inves_lenght.c \
+	   $(SRC_DIR)inves_length.c \
 	   $(SRC_DIR)tc_char.c \
 	   $(SRC_DIR)tc_dbl.c \
 	   $(SRC_DIR)round_dbl.c \

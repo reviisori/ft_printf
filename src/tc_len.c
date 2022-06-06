@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 15:57:06 by altikka           #+#    #+#             */
-/*   Updated: 2022/06/01 17:03:39 by altikka          ###   ########.fr       */
+/*   Updated: 2022/06/06 22:44:08 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	hotel_ptr(t_vec *dest, t_stat *info)
 	signed char	*cptr;
 	short		*sptr;
 
-	if (info->lenght == hh)
+	if (info->length == hh)
 	{
 		cptr = va_arg(info->ap, signed char *);
 		*cptr = (signed char ) dest->len;
@@ -43,9 +43,9 @@ int	tc_len(t_vec *dest, t_stat *info)
 {
 	int			*iptr;
 
-	if (info->lenght == hh || info->lenght == h)
+	if (info->length == hh || info->length == h)
 		return (hotel_ptr(dest, info));
-	else if (info->lenght == l)
+	else if (info->length == l)
 		return (lima_ptr(dest, info));
 	else
 	{

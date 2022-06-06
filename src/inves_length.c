@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inves_lenght.c                                     :+:      :+:    :+:   */
+/*   inves_length.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 14:09:25 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/26 18:21:57 by altikka          ###   ########.fr       */
+/*   Updated: 2022/06/06 22:42:16 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ static int	lima(const char **fptr, t_stat *info)
 {
 	if (*(*fptr + 1) == 'l')
 	{
-		info->lenght = ll;
+		info->length = ll;
 		(*fptr) = (*fptr) + 2;
 	}
 	else
 	{
-		info->lenght = l;
+		info->length = l;
 		(*fptr)++;
 	}
 	return (1);
@@ -31,18 +31,18 @@ static int	hotel(const char **fptr, t_stat *info)
 {
 	if (*(*fptr + 1) == 'h')
 	{
-		info->lenght = hh;
+		info->length = hh;
 		(*fptr) = (*fptr) + 2;
 	}
 	else
 	{
-		info->lenght = h;
+		info->length = h;
 		(*fptr)++;
 	}
 	return (1);
 }
 
-int	inves_lenght(const char **fptr, t_stat *info)
+int	inves_length(const char **fptr, t_stat *info)
 {
 	if (**fptr == 'h')
 		return (hotel(fptr, info));
@@ -50,7 +50,7 @@ int	inves_lenght(const char **fptr, t_stat *info)
 		return (lima(fptr, info));
 	if (**fptr == 'L')
 	{
-		info->lenght = L;
+		info->length = L;
 		(*fptr)++;
 	}
 	return (1);

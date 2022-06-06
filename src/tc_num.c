@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:12:15 by altikka           #+#    #+#             */
-/*   Updated: 2022/06/01 21:20:49 by altikka          ###   ########.fr       */
+/*   Updated: 2022/06/06 22:44:26 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	tc_num(t_vec *dest, t_stat *info)
 	if (info->type == 'd' || info->type == 'f' || info->type == 'i'
 		|| info->type == 'u')
 		info->hash = false;
-	str = g_handler[info->lenght](info);
+	str = g_handler[info->length](info);
 	if (!str)
 		return (-1);
 	len = ft_strlen(str);

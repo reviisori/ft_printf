@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 10:28:17 by altikka           #+#    #+#             */
-/*   Updated: 2022/06/02 23:55:55 by altikka          ###   ########.fr       */
+/*   Updated: 2022/06/06 22:36:26 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct s_stat
 	unsigned int	width;
 	unsigned int	preci;
 	bool			preci_on;
-	t_len			lenght;
+	t_len			length;
 	char			type;
 	char			pad;
 }			t_stat;

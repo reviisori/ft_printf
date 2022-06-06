@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 14:30:47 by altikka           #+#    #+#             */
-/*   Updated: 2022/06/01 18:03:32 by altikka          ###   ########.fr       */
+/*   Updated: 2022/06/06 22:44:57 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	reset_stats(t_stat *info)
 	info->width = 0;
 	info->preci = 0;
 	info->preci_on = false;
-	info->lenght = 0;
+	info->length = 0;
 	info->type = ' ';
 	info->pad = ' ';
 }

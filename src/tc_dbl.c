@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:10:57 by altikka           #+#    #+#             */
-/*   Updated: 2022/06/03 12:37:45 by altikka          ###   ########.fr       */
+/*   Updated: 2022/06/06 22:43:31 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ int	tc_dbl(t_vec *dest, t_stat *info)
 	t_vec			temp;
 	int				inf;
 
-	if (info->lenght == L)
+	if (info->length == L)
 		val = va_arg(info->ap, long double);
 	else
 		val = va_arg(info->ap, double);

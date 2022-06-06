@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 14:21:41 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/30 12:03:57 by altikka          ###   ########.fr       */
+/*   Updated: 2022/06/06 22:42:56 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	press(t_vec *dest, const char *format, t_stat info)
 			inves_flags(&p, &info);
 			inves_width(&p, &info);
 			inves_preci(&p, &info);
-			inves_lenght(&p, &info);
+			inves_length(&p, &info);
 			if (press_type(dest, &p, &info) < 0)
 				return (-1);
 			format = p;

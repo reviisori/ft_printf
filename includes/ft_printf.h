@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 14:08:42 by altikka           #+#    #+#             */
-/*   Updated: 2022/06/03 12:37:44 by altikka          ###   ########.fr       */
+/*   Updated: 2022/06/06 22:40:34 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int			press(t_vec *dest, const char *format, t_stat info);
 int			inves_flags(const char **fptr, t_stat *info);
 int			inves_width(const char **fptr, t_stat *info);
 int			inves_preci(const char **fptr, t_stat *info);
-int			inves_lenght(const char **fptr, t_stat *info);
+int			inves_length(const char **fptr, t_stat *info);
 int			press_type(t_vec *dest, const char **fptr, t_stat *info);
 long double	round_dbl(long double val, unsigned int preci);
 void		init_stats(t_stat *info, va_list ap);
