@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 13:53:49 by altikka           #+#    #+#             */
-/*   Updated: 2022/05/30 11:59:44 by altikka          ###   ########.fr       */
+/*   Updated: 2022/06/06 14:20:13 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,7 @@ int	inves_width(const char **fptr, t_stat *info)
 		info->pad = ' ';
 	}
 	info->width = (unsigned int ) width;
+	if (!(info->width < 2147483647))
+		info->val = -1;
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 13:17:17 by altikka           #+#    #+#             */
-/*   Updated: 2022/06/02 19:51:01 by altikka          ###   ########.fr       */
+/*   Updated: 2022/06/06 12:11:58 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ int	press_type(t_vec *dest, const char **fptr, t_stat *info)
 	if (info->type == 'd' || info->type == 'i' || info->type == 'f')
 		info->is_signed = true;
 	i = get_index(info->type);
-	if (i < 0)
+	if (i < 0 || info->val < 0)
 	{
 		if (info->type == '%')
 			return (pad_char(dest, info, '%'));
-		ft_putendl("*ERROR*: formatting not supported");
+		ft_putendl("*ERROR*: formatting not supported.");
 		return (-1);
 	}
 	disp = g_jump[i];
