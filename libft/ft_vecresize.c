@@ -6,7 +6,7 @@
 /*   By: altikka <altikka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 12:38:15 by altikka           #+#    #+#             */
-/*   Updated: 2022/04/27 14:17:28 by altikka          ###   ########.fr       */
+/*   Updated: 2022/06/06 22:35:52 by altikka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int	ft_vecresize(t_vec *src, size_t new_size)
 	new_len = new_size / src->type;
 	if (ft_vecnew(&temp, new_len, src->type) < 0)
 		return (-1);
-	ft_veccpy(&temp, src);
+	if (ft_veccpy(&temp, src) < 0)
+		return (-1);
 	if (new_len > src->len)
 		temp.len = src->len;
 	else
